@@ -300,7 +300,7 @@ export default function Home() {
         <p><span>FETHİYE</span> Küçük Samanlı Beach Club</p>
       </section>
 
-      <footer id="hakkimizda">
+      <footer>
         <div className="footer-main">
           <div className="footer-intro">
             <a className="brand footer-brand" href="#top" aria-label="SNG Biletim">
@@ -310,7 +310,7 @@ export default function Home() {
             <p>Fethiye’de müzik, deniz ve unutulmaz geceler.</p>
           </div>
 
-          <div className="footer-block footer-about">
+          <div className="footer-block footer-about" id="hakkimizda">
             <span className="footer-label">HAKKIMIZDA</span>
             <p>
               SNG Biletim, Fethiye’nin özel konser ve eğlence etkinliklerini

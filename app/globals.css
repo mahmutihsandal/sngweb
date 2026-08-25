@@ -601,14 +601,100 @@ footer {
     letter-spacing: .1em;
   }
   .mobile-menu-link > b { color: var(--gold); font-size: 15px; }
-  .mobile-menu-link.is-disabled { color: rgba(255,255,255,.46); }
-  .mobile-menu-link.is-disabled em {
-    color: rgba(255,255,255,.35);
+  .mobile-menu-panel button.mobile-menu-link {
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .night-menu-modal {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 8px;
+  }
+  .night-menu-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    background: rgba(0,0,0,.88);
+    backdrop-filter: blur(5px);
+  }
+  .night-menu-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 760px);
+    height: calc(100dvh - 16px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(230,169,26,.62);
+    background: #111418;
+    box-shadow: 0 26px 70px rgba(0,0,0,.65);
+  }
+  .night-menu-dialog-header {
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border-bottom: 1px solid rgba(255,255,255,.13);
+    padding: 11px 13px 11px 17px;
+    background: #0d0f12;
+  }
+  .night-menu-dialog-header small {
+    display: block;
+    margin-bottom: 3px;
+    color: rgba(255,255,255,.42);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: .18em;
+  }
+  .night-menu-dialog-header h2 {
+    margin: 0;
+    color: var(--gold);
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: .03em;
+  }
+  .night-menu-dialog-header button {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255,255,255,.35);
+    background: transparent;
+    color: #fff;
+    font-size: 27px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .night-menu-hint {
+    margin: 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 8px 16px;
+    color: rgba(255,255,255,.48);
     font-size: 8px;
-    font-style: normal;
-    font-weight: 750;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+  .night-menu-image-scroll {
+    flex: 1;
+    overflow: auto;
+    overscroll-behavior: contain;
+    background: #111418;
+    touch-action: pan-x pan-y pinch-zoom;
+  }
+  .night-menu-image-scroll img {
+    width: max(100%, 680px);
+    height: auto;
+    max-width: none;
   }
   .footer-block[id] { scroll-margin-top: 84px; }
   .hero { min-height: 0; padding: 0; background: #070707; }

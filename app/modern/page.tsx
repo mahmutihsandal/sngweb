@@ -222,7 +222,7 @@ export default function ModernBeachClub() {
             sonra rezervasyonunuz onaylansın.
           </p>
           <a href={whatsappUrl} target="_blank" rel="noreferrer">
-            <small>TEST REZERVASYON HATTI</small>
+            <small>DESTEK &amp; REZERVASYON HATTI</small>
             <span>0546 584 56 15</span>
             <b>↗</b>
           </a>

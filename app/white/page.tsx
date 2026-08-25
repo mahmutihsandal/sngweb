@@ -201,7 +201,7 @@ export default function WhiteTheme() {
               sonrasında rezervasyonunuz onaylansın.
             </p>
             <a href={generalWhatsapp} target="_blank" rel="noreferrer">
-              <small>TEST WHATSAPP HATTI</small>
+              <small>DESTEK &amp; REZERVASYON HATTI</small>
               <strong>0546 584 56 15</strong>
               <span>↗</span>
             </a>

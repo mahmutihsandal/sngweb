@@ -1,3 +1,5 @@
+import HeroCarousel from './HeroCarousel';
+
 const whatsappNumber = '905465845615';
 
 const whatsappLink = (message: string) =>
@@ -103,21 +105,16 @@ export default function Home() {
         </a>
       </header>
 
-      <section className="hero" id="top" aria-label="Poizi konseri, 1 Eylül 2026">
-        <div className="hero-visual">
-          <div className="hero-headline">
-            <span>DENİZİN KIYISINDA</span>
-            <strong>İKİ BÜYÜK GECE.</strong>
-            <a className="ticket-options-cta" href="#biletler">
-              Bilet seçeneklerini gör <span aria-hidden="true">↓</span>
-            </a>
-          </div>
-        </div>
+      <section className="hero" id="top" aria-label="Poizi ve PAU konserleri, 1 ve 2 Eylül 2026">
+        <HeroCarousel />
         <div className="hero-summary">
           <div className="hero-summary-copy">
             <span>FETHİYE · KÜÇÜK SAMANLI BEACH CLUB</span>
             <strong>01—02 EYLÜL 2026 · KAPI AÇILIŞI 19:00</strong>
           </div>
+          <a className="ticket-options-cta" href="#biletler">
+            Bilet seçeneklerini gör <span aria-hidden="true">↓</span>
+          </a>
         </div>
       </section>
 
@@ -260,7 +257,7 @@ export default function Home() {
           </p>
           <a className="whatsapp-large" href={generalWhatsappUrl} target="_blank" rel="noreferrer">
             <span>
-              <small>TEST REZERVASYON HATTI</small>
+              <small>DESTEK &amp; REZERVASYON HATTI</small>
               0546 584 56 15
             </span>
             <b aria-hidden="true">↗</b>

@@ -67,21 +67,67 @@ section[id] { scroll-margin-top: 96px; }
   padding: 0;
   background: #070707;
 }
-.hero-visual {
+.hero-carousel {
   position: relative;
   height: clamp(500px, 62vh, 660px);
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.04) 0%, transparent 78%, rgba(0,0,0,.22) 100%),
-    url('/assets/poizi-yatay.jpg') center/cover no-repeat;
+  overflow: hidden;
+  background: #070707;
 }
+.hero-carousel::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.04) 0%, transparent 70%, rgba(0,0,0,.28) 100%);
+  content: '';
+  pointer-events: none;
+}
+.hero-carousel-track {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  touch-action: pan-y;
+  cursor: grab;
+}
+.hero-carousel-track.is-dragging { scroll-snap-type: none; cursor: grabbing; }
+.hero-carousel-track::-webkit-scrollbar { display: none; }
+.hero-slide {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.hero-slide picture, .hero-slide img { width: 100%; height: 100%; }
+.hero-slide picture { display: block; }
+.hero-slide img { object-fit: cover; object-position: center; user-select: none; }
+.hero-slide-pau::before {
+  position: absolute;
+  inset: -24px;
+  background: url('/assets/pau-yatay.jpg') center/cover no-repeat;
+  content: '';
+  filter: blur(20px) brightness(.55);
+  transform: scale(1.04);
+}
+.hero-slide-pau picture { position: relative; z-index: 1; }
+.hero-slide-pau img { object-fit: contain; }
 .hero-headline {
   position: absolute;
+  z-index: 2;
   left: clamp(22px, 4vw, 68px);
   bottom: 66px;
   width: min(680px, 56vw);
   max-width: min(680px, 56vw);
   text-shadow: 0 3px 18px rgba(0,0,0,.95);
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
 }
+.hero-carousel.is-pau-active .hero-headline { visibility: hidden; opacity: 0; transform: translateY(12px); }
 .hero-headline > span {
   display: block;
   margin-bottom: 7px;
@@ -103,12 +149,13 @@ section[id] { scroll-margin-top: 96px; }
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 30px;
   padding: 15px clamp(22px, 4vw, 68px);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: #0b0b0b;
 }
-.hero-summary-copy { min-width: 0; text-align: center; }
+.hero-summary-copy { min-width: 0; text-align: left; }
 .hero-summary-copy span { display: block; margin-bottom: 7px; color: rgba(255,255,255,.46); font-size: 8px; font-weight: 750; letter-spacing: .16em; }
 .hero-summary-copy strong { font-size: 12px; letter-spacing: .08em; }
 .ticket-options-cta {
@@ -127,11 +174,6 @@ section[id] { scroll-margin-top: 96px; }
   transition: background .2s ease, transform .2s ease;
 }
 .ticket-options-cta:hover { background: #ffd15b; transform: translateY(-2px); }
-.hero-headline .ticket-options-cta {
-  width: 310px;
-  margin-top: 20px;
-  text-shadow: none;
-}
 
 .event-section { padding: 54px clamp(28px, 4vw, 68px) 62px; background: #080808; }
 .section-heading {
@@ -457,12 +499,11 @@ footer {
   .desktop-nav { display: none; }
   .header-cta { padding: 10px 12px; font-size: 10px; }
   .hero { min-height: 0; padding: 0; background: #070707; }
-  .hero-visual {
+  .hero-carousel {
     height: 620px;
-    background:
-      linear-gradient(180deg, rgba(0,0,0,.04) 0%, transparent 86%, rgba(0,0,0,.18) 100%),
-      url('/assets/poizi-dikey.jpg') center top/cover no-repeat;
   }
+  .hero-slide img { object-position: center top; }
+  .hero-slide-pau::before { background-image: url('/assets/pau-dikey.jpg'); }
   .hero-headline {
     top: 42%;
     right: auto;
@@ -473,9 +514,9 @@ footer {
   }
   .hero-headline > span { font-size: 10px; }
   .hero-headline > strong { font-size: clamp(35px, 10.5vw, 44px); }
-  .hero-headline .ticket-options-cta { width: min(320px, 100%); min-width: 0; }
-  .hero-summary { padding: 16px 18px 18px; }
-  .hero-summary-copy { min-width: 0; }
+  .hero-summary { flex-direction: column; gap: 14px; padding: 16px 18px 18px; }
+  .hero-summary-copy { min-width: 0; text-align: center; }
+  .hero-summary .ticket-options-cta { width: min(360px, 100%); min-width: 0; }
   .event-section { padding: 44px 18px 56px; overflow: hidden; }
   .section-heading { display: block; }
   .section-heading p { margin-bottom: 12px; }

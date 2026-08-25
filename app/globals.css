@@ -665,6 +665,31 @@ footer {
     font-weight: 900;
     letter-spacing: .08em;
   }
+  .mobile-about {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(230,169,26,.42);
+    padding: 18px 16px 19px 20px;
+  }
+  .mobile-about > small {
+    margin-bottom: 8px;
+    color: var(--gold);
+    font-size: 7px;
+    font-weight: 850;
+    letter-spacing: .16em;
+  }
+  .mobile-about > strong {
+    margin-bottom: 7px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+  }
+  .mobile-about > p {
+    max-width: 320px;
+    margin: 0;
+    color: rgba(255,255,255,.62);
+    font-size: 10px;
+    line-height: 1.65;
+  }
   .night-menu-modal {
     position: fixed;
     z-index: 10;

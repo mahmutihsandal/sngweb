@@ -9,6 +9,7 @@ export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [isNightMenuOpen, setIsNightMenuOpen] = useState(false);
   const [isDirectionsOpen, setIsDirectionsOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const modalCloseButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -20,6 +21,7 @@ export default function MobileMenu() {
       setIsOpen(false);
       setIsNightMenuOpen(false);
       setIsDirectionsOpen(false);
+      setIsAboutOpen(false);
     };
     const desktopMedia = window.matchMedia('(min-width: 761px)');
     const closeOnDesktop = () => {
@@ -27,6 +29,7 @@ export default function MobileMenu() {
       setIsOpen(false);
       setIsNightMenuOpen(false);
       setIsDirectionsOpen(false);
+      setIsAboutOpen(false);
     };
 
     window.addEventListener('keydown', closeOnEscape);
@@ -64,7 +67,10 @@ export default function MobileMenu() {
         aria-controls="mobile-navigation"
         ref={menuButtonRef}
         onClick={() => {
-          if (isOpen) setIsDirectionsOpen(false);
+          if (isOpen) {
+            setIsDirectionsOpen(false);
+            setIsAboutOpen(false);
+          }
           setIsOpen((current) => !current);
         }}
       >
@@ -81,6 +87,7 @@ export default function MobileMenu() {
             onClick={() => {
               setIsOpen(false);
               setIsDirectionsOpen(false);
+              setIsAboutOpen(false);
             }}
           />
           <nav className="mobile-menu-panel" id="mobile-navigation" aria-label="Mobil menü">
@@ -92,6 +99,7 @@ export default function MobileMenu() {
               onClick={() => {
                 setIsOpen(false);
                 setIsDirectionsOpen(false);
+                setIsAboutOpen(false);
                 setIsNightMenuOpen(true);
               }}
             >
@@ -104,7 +112,10 @@ export default function MobileMenu() {
               type="button"
               aria-expanded={isDirectionsOpen}
               aria-controls="mobile-directions"
-              onClick={() => setIsDirectionsOpen((current) => !current)}
+              onClick={() => {
+                setIsAboutOpen(false);
+                setIsDirectionsOpen((current) => !current);
+              }}
             >
               <span><small>02</small> Nasıl Gidilir?</span>
               <b aria-hidden="true">{isDirectionsOpen ? '−' : '+'}</b>
@@ -136,10 +147,36 @@ export default function MobileMenu() {
                   onClick={() => {
                     setIsOpen(false);
                     setIsDirectionsOpen(false);
+                    setIsAboutOpen(false);
                   }}
                 >
                   MAPS’TE AÇ <span aria-hidden="true">↗</span>
                 </a>
+              </div>
+            )}
+
+            <button
+              className="mobile-menu-link"
+              type="button"
+              aria-expanded={isAboutOpen}
+              aria-controls="mobile-about"
+              onClick={() => {
+                setIsDirectionsOpen(false);
+                setIsAboutOpen((current) => !current);
+              }}
+            >
+              <span><small>03</small> Hakkımızda</span>
+              <b aria-hidden="true">{isAboutOpen ? '−' : '+'}</b>
+            </button>
+
+            {isAboutOpen && (
+              <div className="mobile-about" id="mobile-about">
+                <small>BİZ KİMİZ?</small>
+                <strong>SNG Biletim</strong>
+                <p>
+                  SNG Biletim, Fethiye’nin özel konser ve eğlence etkinliklerini
+                  hızlı, kolay ve doğrudan rezervasyon deneyimiyle buluşturur.
+                </p>
               </div>
             )}
           </nav>

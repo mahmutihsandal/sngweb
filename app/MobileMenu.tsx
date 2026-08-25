@@ -8,6 +8,7 @@ const mapsUrl =
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [isNightMenuOpen, setIsNightMenuOpen] = useState(false);
+  const [isDirectionsOpen, setIsDirectionsOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const modalCloseButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -18,12 +19,14 @@ export default function MobileMenu() {
       if (event.key !== 'Escape') return;
       setIsOpen(false);
       setIsNightMenuOpen(false);
+      setIsDirectionsOpen(false);
     };
     const desktopMedia = window.matchMedia('(min-width: 761px)');
     const closeOnDesktop = () => {
       if (!desktopMedia.matches) return;
       setIsOpen(false);
       setIsNightMenuOpen(false);
+      setIsDirectionsOpen(false);
     };
 
     window.addEventListener('keydown', closeOnEscape);
@@ -60,7 +63,10 @@ export default function MobileMenu() {
         aria-expanded={isOpen}
         aria-controls="mobile-navigation"
         ref={menuButtonRef}
-        onClick={() => setIsOpen((current) => !current)}
+        onClick={() => {
+          if (isOpen) setIsDirectionsOpen(false);
+          setIsOpen((current) => !current);
+        }}
       >
         <span>MENÜ</span>
         <i aria-hidden="true"><b /><b /><b /></i>
@@ -72,43 +78,70 @@ export default function MobileMenu() {
             className="mobile-menu-backdrop"
             type="button"
             aria-label="Menüyü kapat"
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              setIsDirectionsOpen(false);
+            }}
           />
           <nav className="mobile-menu-panel" id="mobile-navigation" aria-label="Mobil menü">
             <p>HIZLI ERİŞİM</p>
-
-            <a href="#hakkimizda" className="mobile-menu-link" onClick={() => setIsOpen(false)}>
-              <span><small>01</small> Hakkımızda</span>
-              <b aria-hidden="true">↓</b>
-            </a>
 
             <button
               className="mobile-menu-link"
               type="button"
               onClick={() => {
                 setIsOpen(false);
+                setIsDirectionsOpen(false);
                 setIsNightMenuOpen(true);
               }}
             >
-              <span><small>02</small> Gece Menüsü</span>
+              <span><small>01</small> Gece Menüsü</span>
               <b aria-hidden="true">↗</b>
             </button>
 
-            <a href="#adres" className="mobile-menu-link" onClick={() => setIsOpen(false)}>
-              <span><small>03</small> Adres</span>
-              <b aria-hidden="true">↓</b>
-            </a>
-
-            <a
-              href={mapsUrl}
+            <button
               className="mobile-menu-link"
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => setIsOpen(false)}
+              type="button"
+              aria-expanded={isDirectionsOpen}
+              aria-controls="mobile-directions"
+              onClick={() => setIsDirectionsOpen((current) => !current)}
             >
-              <span><small>04</small> Nasıl Gidilir?</span>
-              <b aria-hidden="true">↗</b>
-            </a>
+              <span><small>02</small> Nasıl Gidilir?</span>
+              <b aria-hidden="true">{isDirectionsOpen ? '−' : '+'}</b>
+            </button>
+
+            {isDirectionsOpen && (
+              <div className="mobile-directions" id="mobile-directions">
+                <address>
+                  <small>ADRES</small>
+                  <strong>Küçük Samanlı Beach Club</strong>
+                  <span>Fethiye / Muğla</span>
+                </address>
+
+                <div className="mobile-directions-copy">
+                  <p>
+                    <strong>Özel Araç:</strong> Fethiye merkezden yarımada yolunu takip ederek
+                    yaklaşık 10-15 dakikada ulaşabilirsiniz.
+                  </p>
+                  <p>
+                    <strong>Toplu Taşıma:</strong> Merkezden kalkan plaj dolmuşlarını
+                    kullanabilirsiniz.
+                  </p>
+                </div>
+
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsDirectionsOpen(false);
+                  }}
+                >
+                  MAPS’TE AÇ <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            )}
           </nav>
         </>
       )}

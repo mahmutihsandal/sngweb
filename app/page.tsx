@@ -1,4 +1,4 @@
-import HeroCarousel from './HeroCarousel';
+import HeroShowcase from './HeroShowcase';
 import MobileMenu from './MobileMenu';
 
 const whatsappNumber = '905465845615';
@@ -114,16 +114,7 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top" aria-label="Poizi ve PAU konserleri, 1 ve 2 Eylül 2026">
-        <HeroCarousel />
-        <div className="hero-summary">
-          <div className="hero-summary-copy">
-            <span>FETHİYE · KÜÇÜK SAMANLI BEACH CLUB</span>
-            <strong>01—02 EYLÜL 2026 · KAPI AÇILIŞI 19:00</strong>
-          </div>
-          <a className="ticket-options-cta" href="#biletler">
-            Bilet seçeneklerini gör <span aria-hidden="true">↓</span>
-          </a>
-        </div>
+        <HeroShowcase />
       </section>
 
       <section className="event-section" id="etkinlikler" aria-labelledby="events-title">
@@ -272,26 +263,34 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="payment-card">
-          <div className="payment-card-head">
+        <details className="payment-card">
+          <summary className="payment-card-toggle">
             <span>ÖDEME BİLGİLERİ</span>
-            <span>HALKBANK</span>
+            <span className="payment-card-toggle-side">
+              HALKBANK <b aria-hidden="true">⌄</b>
+            </span>
+          </summary>
+          <div className="payment-card-content">
+            <div className="payment-card-head">
+              <span>ÖDEME BİLGİLERİ</span>
+              <span>HALKBANK</span>
+            </div>
+            <dl>
+              <div>
+                <dt>Alıcı</dt>
+                <dd>Sami Özdemir</dd>
+              </div>
+              <div>
+                <dt>IBAN</dt>
+                <dd>TR13 0001 2001 6730 0009 1028 07</dd>
+              </div>
+            </dl>
+            <p>
+              Ödeme sonrasında dekontunuzu WhatsApp üzerinden iletin. Kontrolün
+              ardından biletiniz onaylanarak rezervasyonunuz tamamlanır.
+            </p>
           </div>
-          <dl>
-            <div>
-              <dt>Alıcı</dt>
-              <dd>Sami Özdemir</dd>
-            </div>
-            <div>
-              <dt>IBAN</dt>
-              <dd>TR13 0001 2001 6730 0009 1028 07</dd>
-            </div>
-          </dl>
-          <p>
-            Ödeme sonrasında dekontunuzu WhatsApp üzerinden iletin. Kontrolün
-            ardından biletiniz onaylanarak rezervasyonunuz tamamlanır.
-          </p>
-        </div>
+        </details>
       </section>
 
       <section className="info-strip" aria-label="Önemli bilgiler">

@@ -254,8 +254,6 @@
 .footerBottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid rgba(36,24,20,.18); padding-top: 24px; color: rgba(36,24,20,.43); font-size: 8px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .footerBottom > div { display: flex; gap: 22px; }
 .footerBottom a { border-bottom: 1px solid rgba(36,24,20,.38); padding-bottom: 3px; }
-.mobileBooking { display: none; }
-
 @media (max-width: 900px) {
   .header { grid-template-columns: 1fr auto; }
   .header nav { display: none; }
@@ -301,25 +299,8 @@
   .bankCard { padding: 28px 22px; }
   .ageNote { grid-template-columns: auto 1fr; }
   .ageNote p:last-child { grid-column: 1 / -1; text-align: left; }
-  .footer { padding: 52px 18px 104px; }
+  .footer { padding: 52px 18px; }
   .footerMain { grid-template-columns: 1fr; gap: 38px; padding-bottom: 40px; }
   .footerLabel { margin-bottom: 14px; }
   .footerBottom { align-items: flex-start; flex-direction: column; }
-  .mobileBooking {
-    position: fixed;
-    z-index: 50;
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
-    display: flex;
-    justify-content: space-between;
-    padding: 17px 18px;
-    background: var(--wine);
-    color: #fff;
-    box-shadow: 0 14px 38px rgba(42,18,14,.3);
-    font-size: 11px;
-    font-weight: 850;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-  }
 }

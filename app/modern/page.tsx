@@ -281,9 +281,6 @@ export default function ModernBeachClub() {
         </div>
       </footer>
 
-      <a className={styles.mobileBooking} href={whatsappUrl} target="_blank" rel="noreferrer">
-        <span>WhatsApp’tan bilet al</span><span>↗</span>
-      </a>
     </main>
   );
 }

@@ -233,8 +233,6 @@
 .footerBottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding: 21px 0; color: #999; font-size: 7px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .footerBottom > div { display: flex; gap: 18px; }
 .footerBottom a { border-bottom: 1px solid #bbb; padding-bottom: 3px; }
-.mobileWhatsapp { display: none; }
-
 @media (max-width: 900px) {
   .header { grid-template-columns: 1fr auto; }
   .header nav, .designLink { display: none; }
@@ -280,25 +278,8 @@
   .bankCard { padding: 25px 20px; }
   .warning { grid-template-columns: auto 1fr; }
   .warning span { grid-column: 1 / -1; }
-  .footer { padding: 38px 0 86px; }
+  .footer { padding: 38px 0; }
   .footerMain { grid-template-columns: 1fr; gap: 34px; padding-bottom: 34px; }
   .footerLabel { margin-bottom: 12px; }
   .footerBottom { align-items: flex-start; flex-direction: column; }
-  .mobileWhatsapp {
-    position: fixed;
-    z-index: 50;
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 9px;
-    padding: 16px 17px;
-    background: var(--gold);
-    color: #111;
-    box-shadow: 0 13px 36px rgba(0,0,0,.28);
-    font-size: 10px;
-    font-weight: 900;
-    text-transform: uppercase;
-  }
 }

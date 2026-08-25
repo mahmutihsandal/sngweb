@@ -338,16 +338,6 @@ export default function Home() {
         </div>
       </footer>
 
-      <a
-        className="mobile-whatsapp"
-        href={generalWhatsappUrl}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="WhatsApp üzerinden bilet al"
-      >
-        <span>WhatsApp’tan Bilet Al</span>
-        <span aria-hidden="true">↗</span>
-      </a>
     </main>
   );
 }

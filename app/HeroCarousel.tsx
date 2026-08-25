@@ -15,9 +15,11 @@ const slides = [
   },
 ] as const;
 
+const SWIPE_THRESHOLD_PX = 40;
+
 export default function HeroCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const dragRef = useRef({ pointerId: -1, startX: 0, startScrollLeft: 0 });
+  const dragRef = useRef({ pointerId: -1, startX: 0, startScrollLeft: 0, startIndex: 0 });
   const [activeSlide, setActiveSlide] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -51,6 +53,7 @@ export default function HeroCarousel() {
       pointerId: event.pointerId,
       startX: event.clientX,
       startScrollLeft: track.scrollLeft,
+      startIndex: Math.round(track.scrollLeft / track.clientWidth),
     };
     track.setPointerCapture(event.pointerId);
     setIsDragging(true);
@@ -71,7 +74,12 @@ export default function HeroCarousel() {
     dragRef.current.pointerId = -1;
     setIsDragging(false);
 
-    const nextIndex = Math.round(track.scrollLeft / track.clientWidth);
+    const swipeDistance = event.clientX - dragRef.current.startX;
+    const direction = swipeDistance < 0 ? 1 : -1;
+    const nextIndex = Math.abs(swipeDistance) >= SWIPE_THRESHOLD_PX
+      ? Math.max(0, Math.min(slides.length - 1, dragRef.current.startIndex + direction))
+      : dragRef.current.startIndex;
+
     track.scrollTo({ left: track.clientWidth * nextIndex, behavior: 'smooth' });
     setActiveSlide(nextIndex);
   };

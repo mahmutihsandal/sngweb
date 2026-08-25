@@ -261,9 +261,6 @@ export default function WhiteTheme() {
         </footer>
       </div>
 
-      <a className={styles.mobileWhatsapp} href={generalWhatsapp} target="_blank" rel="noreferrer">
-        <span>WhatsApp’tan Bilet Al</span><span>↗</span>
-      </a>
     </main>
   );
 }

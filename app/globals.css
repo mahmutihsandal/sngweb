@@ -482,8 +482,6 @@ footer {
 .footer-support > a strong { display: block; margin-bottom: 6px; color: #fff; font-size: 17px; letter-spacing: -.02em; }
 .footer-support > a span { border-bottom: 1px solid currentColor; padding-bottom: 3px; font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .footer-bottom { display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--line); padding-top: 24px; color: rgba(255,255,255,.3); font-size: 8px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-.mobile-whatsapp { display: none; }
-
 @media (max-width: 960px) {
   .ticket-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .program-layout, .plan-section, .reservation-section { grid-template-columns: 1fr; }
@@ -555,28 +553,10 @@ footer {
   .payment-card { padding: 28px 22px; }
   .info-strip { grid-template-columns: 1fr; padding-bottom: 10px; }
   .info-strip p { border-right: 0; border-bottom: 1px solid var(--line); }
-  footer { padding: 50px 18px 110px; }
+  footer { padding: 50px 18px; }
   .footer-main { grid-template-columns: 1fr; gap: 38px; padding-bottom: 40px; }
   .footer-label { margin-bottom: 14px; }
   .footer-bottom { align-items: flex-start; flex-direction: column; }
-  .mobile-whatsapp {
-    position: fixed;
-    z-index: 50;
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 17px 18px;
-    background: #22c55e;
-    color: #06150b;
-    box-shadow: 0 14px 40px rgba(0,0,0,.35);
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

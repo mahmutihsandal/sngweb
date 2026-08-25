@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './modern.module.css';
 
-const whatsappNumber = '905465845615';
+const whatsappNumber = '905301802390';
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
   'Merhaba, SNG etkinlikleri için bilet almak istiyorum.',
 )}`;
@@ -223,7 +223,7 @@ export default function ModernBeachClub() {
           </p>
           <a href={whatsappUrl} target="_blank" rel="noreferrer">
             <small>DESTEK &amp; REZERVASYON HATTI</small>
-            <span>0546 584 56 15</span>
+            <span>0530 180 23 90</span>
             <b>↗</b>
           </a>
         </div>
@@ -270,7 +270,7 @@ export default function ModernBeachClub() {
             <span className={styles.footerLabel}>WHATSAPP DESTEK</span>
             <p>Bilet, müsaitlik ve rezervasyon sorularınız için bize yazın.</p>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">
-              <strong>0546 584 56 15</strong>
+              <strong>0530 180 23 90</strong>
               <span>Hemen destek al ↗</span>
             </a>
           </div>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './white.module.css';
 
-const whatsappNumber = '905465845615';
+const whatsappNumber = '905301802390';
 const whatsappLink = (message: string) =>
   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
@@ -202,7 +202,7 @@ export default function WhiteTheme() {
             </p>
             <a href={generalWhatsapp} target="_blank" rel="noreferrer">
               <small>DESTEK &amp; REZERVASYON HATTI</small>
-              <strong>0546 584 56 15</strong>
+              <strong>0530 180 23 90</strong>
               <span>↗</span>
             </a>
           </div>
@@ -249,7 +249,7 @@ export default function WhiteTheme() {
               <span className={styles.footerLabel}>WHATSAPP DESTEK</span>
               <p>Bilet, müsaitlik ve rezervasyon sorularınız için bize yazın.</p>
               <a href={generalWhatsapp} target="_blank" rel="noreferrer">
-                <strong>0546 584 56 15</strong>
+                <strong>0530 180 23 90</strong>
                 <span>Hemen destek al ↗</span>
               </a>
             </div>

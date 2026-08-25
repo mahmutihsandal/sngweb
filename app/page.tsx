@@ -1,7 +1,7 @@
 import HeroShowcase from './HeroShowcase';
 import MobileMenu from './MobileMenu';
 
-const whatsappNumber = '905465845615';
+const whatsappNumber = '905301802390';
 
 const whatsappLink = (message: string) =>
   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -15,16 +15,16 @@ const events = [
     artist: 'POIZI',
     date: '01 EYLÜL',
     day: 'SALI',
-    image: 'assets/poizi-yatay.jpg',
-    mobileImage: 'assets/poizi-dikey.jpg',
+    image: 'assets/poizi-portre.jpg',
+    mobileImage: 'assets/poizi-portre.jpg',
     tone: 'gold',
   },
   {
     artist: 'PAU',
     date: '02 EYLÜL',
     day: 'ÇARŞAMBA',
-    image: 'assets/pau-yatay.jpg',
-    mobileImage: 'assets/pau-dikey.jpg',
+    image: 'assets/pau-portre.png',
+    mobileImage: 'assets/pau-portre.png',
     tone: 'red',
   },
 ] as const;
@@ -119,7 +119,7 @@ export default function Home() {
 
       <section className="event-section" id="etkinlikler" aria-labelledby="events-title">
         <div className="section-heading dark-heading">
-          <p>01 / ETKİNLİKLER</p>
+          <p>ETKİNLİKLER</p>
           <h2 id="events-title">SAHNENİ SEÇ.</h2>
         </div>
         <div className="event-grid">
@@ -148,7 +148,7 @@ export default function Home() {
 
       <section className="program-section" id="program" aria-labelledby="program-title">
         <div className="section-heading dark-heading">
-          <p>02 / PROGRAM</p>
+          <p>PROGRAM</p>
           <h2 id="program-title">GECE AKIŞI.</h2>
         </div>
         <div className="program-layout">
@@ -178,7 +178,7 @@ export default function Home() {
       <section className="tickets-section" id="biletler" aria-labelledby="tickets-title">
         <div className="section-heading light-heading">
           <div>
-            <p>03 / BİLET SEÇENEKLERİ</p>
+            <p>BİLET SEÇENEKLERİ</p>
             <span className="availability"><i /> ERKEN FIRSAT FİYATLARI</span>
           </div>
           <h2 id="tickets-title">YERİNİ AYIR.</h2>
@@ -216,7 +216,7 @@ export default function Home() {
 
       <section className="plan-section" id="kroki" aria-labelledby="plan-title">
         <div className="plan-copy">
-          <p className="section-number">04 / ALAN KROKİSİ</p>
+          <p className="section-number">ALAN KROKİSİ</p>
           <h2 id="plan-title">SAHNEYE<br />NE KADAR YAKIN?</h2>
           <p>
             Loca, Gold ve Silver Bistro, orta ayakta ve arka genel alanları
@@ -248,7 +248,7 @@ export default function Home() {
               <span>RESMİ REZERVASYON KANALI</span>
             </div>
           </div>
-          <p className="section-number">05 / REZERVASYON</p>
+          <p className="section-number">REZERVASYON</p>
           <h2 id="reservation-title">BİLETİNİ<br />WHATSAPP’TAN AL.</h2>
           <p className="reservation-lead">
             Etkinliği ve bilet kategorisini yazın. Müsaitlik teyidi ve ödeme
@@ -257,7 +257,7 @@ export default function Home() {
           <a className="whatsapp-large" href={generalWhatsappUrl} target="_blank" rel="noreferrer">
             <span>
               <small>DESTEK &amp; REZERVASYON HATTI</small>
-              0546 584 56 15
+              0530 180 23 90
             </span>
             <b aria-hidden="true">↗</b>
           </a>
@@ -294,9 +294,15 @@ export default function Home() {
       </section>
 
       <section className="info-strip" aria-label="Önemli bilgiler">
-        <p><span>18+</span> 18 yaş altı misafirler yalnızca ebeveyn veya vasi refakatiyle giriş yapabilir.</p>
-        <p><span>19:00</span> Kapı açılışı</p>
-        <p><span>FETHİYE</span> Küçük Samanlı Beach Club</p>
+        <div className="age-warning">
+          <h2>🔞 +18 UYARISI</h2>
+          <p>Etkinliğimiz 18 yaş ve üzeri katılımcılara yöneliktir.</p>
+          <p>
+            18 yaş altı katılımcılar, yalnızca ebeveynleri eşliğinde etkinlik
+            alanına giriş yapabilir.
+          </p>
+          <p>🎟️ Bilet alırken yaş sınırını dikkate almanızı rica ederiz.</p>
+        </div>
       </section>
 
       <footer>
@@ -334,7 +340,7 @@ export default function Home() {
             <span className="footer-label">WHATSAPP DESTEK</span>
             <p>Bilet, müsaitlik ve rezervasyon sorularınız için bize yazın.</p>
             <a href={generalWhatsappUrl} target="_blank" rel="noreferrer">
-              <strong>0546 584 56 15</strong>
+              <strong>0530 180 23 90</strong>
               <span>Hemen destek al ↗</span>
             </a>
           </div>

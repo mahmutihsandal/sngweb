@@ -103,7 +103,7 @@ export default function MobileMenu() {
                 setIsNightMenuOpen(true);
               }}
             >
-              <span><small>01</small> Gece Menüsü</span>
+              <span>Gece Menüsü</span>
               <b aria-hidden="true">↗</b>
             </button>
 
@@ -117,7 +117,7 @@ export default function MobileMenu() {
                 setIsDirectionsOpen((current) => !current);
               }}
             >
-              <span><small>02</small> Nasıl Gidilir?</span>
+              <span>Nasıl Gidilir?</span>
               <b aria-hidden="true">{isDirectionsOpen ? '−' : '+'}</b>
             </button>
 
@@ -165,7 +165,7 @@ export default function MobileMenu() {
                 setIsAboutOpen((current) => !current);
               }}
             >
-              <span><small>03</small> Hakkımızda</span>
+              <span>Hakkımızda</span>
               <b aria-hidden="true">{isAboutOpen ? '−' : '+'}</b>
             </button>
 

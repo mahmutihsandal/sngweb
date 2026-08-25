@@ -1,4 +1,5 @@
 import HeroCarousel from './HeroCarousel';
+import MobileMenu from './MobileMenu';
 
 const whatsappNumber = '905465845615';
 
@@ -90,9 +91,15 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="SNG Biletim ana sayfa">
-          <span className="brand-mark">SNG</span>
-          <span className="brand-copy">BİLETİM</span>
+        <a className="brand header-brand" href="#top" aria-label="SNG Biletim ve SNG Ajans ana sayfa">
+          <span className="header-brand-wordmark">
+            <span className="brand-mark">SNG</span>
+            <span className="brand-copy">BİLETİM</span>
+          </span>
+          <span className="header-brand-separator" aria-hidden="true" />
+          <span className="header-brand-agency" aria-hidden="true">
+            <img src="assets/sng-ajans-logo.jpg" alt="" />
+          </span>
         </a>
         <nav className="desktop-nav" aria-label="Ana menü">
           <a href="#etkinlikler">Etkinlikler</a>
@@ -103,6 +110,7 @@ export default function Home() {
         <a className="header-cta" href={generalWhatsappUrl} target="_blank" rel="noreferrer">
           WhatsApp’tan Al
         </a>
+        <MobileMenu />
       </header>
 
       <section className="hero" id="top" aria-label="Poizi ve PAU konserleri, 1 ve 2 Eylül 2026">
@@ -310,7 +318,7 @@ export default function Home() {
             </p>
           </div>
 
-          <address className="footer-block">
+          <address className="footer-block" id="adres">
             <span className="footer-label">LOKASYON &amp; ADRES</span>
             <strong>Küçük Samanlı Beach Club</strong>
             <p>Fethiye / Muğla</p>

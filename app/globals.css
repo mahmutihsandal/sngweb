@@ -47,6 +47,24 @@ section[id] { scroll-margin-top: 96px; }
   letter-spacing: -3px;
 }
 .brand-copy { font-size: 12px; font-weight: 750; letter-spacing: .25em; }
+.header-brand { gap: 10px; }
+.header-brand-wordmark { display: flex; align-items: center; gap: 11px; }
+.header-brand-separator { width: 1px; height: 32px; background: rgba(255,255,255,.22); }
+.header-brand-agency {
+  position: relative;
+  width: 30px;
+  height: 40px;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+.header-brand-agency img {
+  position: absolute;
+  top: -12px;
+  left: -14px;
+  width: 60px;
+  height: 60px;
+  max-width: none;
+}
 .desktop-nav { display: flex; gap: 34px; font-size: 12px; font-weight: 650; letter-spacing: .08em; }
 .desktop-nav a { opacity: .72; transition: opacity .2s ease; }
 .desktop-nav a:hover { opacity: 1; }
@@ -59,6 +77,7 @@ section[id] { scroll-margin-top: 96px; }
   transition: background .2s ease, color .2s ease;
 }
 .header-cta:hover { background: #fff; color: #090909; }
+.mobile-menu { display: none; }
 
 .hero {
   position: relative;
@@ -494,8 +513,104 @@ footer {
 @media (max-width: 760px) {
   section[id] { scroll-margin-top: 84px; }
   .site-header { height: 72px; grid-template-columns: 1fr auto; padding: 0 18px; }
+  .header-brand { gap: 8px; }
+  .header-brand-wordmark { gap: 9px; }
+  .header-brand-separator { height: 29px; }
+  .header-brand-agency { width: 27px; height: 36px; }
+  .header-brand-agency img { top: -10px; left: -12px; width: 54px; height: 54px; }
   .desktop-nav { display: none; }
-  .header-cta { padding: 10px 12px; font-size: 10px; }
+  .header-cta { display: none; }
+  .mobile-menu { display: block; justify-self: end; }
+  .mobile-menu-button {
+    position: relative;
+    z-index: 3;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255,255,255,.72);
+    padding: 0 13px;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: .1em;
+    cursor: pointer;
+  }
+  .mobile-menu-button i { position: relative; width: 17px; height: 12px; display: block; }
+  .mobile-menu-button b {
+    position: absolute;
+    right: 0;
+    width: 17px;
+    height: 1px;
+    background: currentColor;
+    transition: top .2s ease, transform .2s ease, opacity .2s ease;
+  }
+  .mobile-menu-button b:nth-child(1) { top: 0; }
+  .mobile-menu-button b:nth-child(2) { top: 5px; }
+  .mobile-menu-button b:nth-child(3) { top: 10px; }
+  .mobile-menu.is-open .mobile-menu-button { background: #fff; color: #080808; }
+  .mobile-menu.is-open .mobile-menu-button b:nth-child(1) { top: 5px; transform: rotate(45deg); }
+  .mobile-menu.is-open .mobile-menu-button b:nth-child(2) { opacity: 0; }
+  .mobile-menu.is-open .mobile-menu-button b:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+  .mobile-menu-backdrop {
+    position: fixed;
+    z-index: 1;
+    inset: 72px 0 0;
+    border: 0;
+    padding: 0;
+    background: rgba(0,0,0,.66);
+    backdrop-filter: blur(3px);
+  }
+  .mobile-menu-panel {
+    position: fixed;
+    z-index: 2;
+    top: 72px;
+    right: 0;
+    left: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid rgba(230,169,26,.55);
+    padding: 22px 18px 18px;
+    background: #090909;
+    box-shadow: 0 24px 50px rgba(0,0,0,.48);
+  }
+  .mobile-menu-panel > p {
+    margin: 0 0 13px;
+    color: rgba(255,255,255,.42);
+    font-size: 8px;
+    font-weight: 850;
+    letter-spacing: .18em;
+  }
+  .mobile-menu-link {
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+  }
+  .mobile-menu-link span { display: flex; align-items: center; gap: 12px; }
+  .mobile-menu-link small {
+    color: var(--gold);
+    font-size: 8px;
+    font-weight: 850;
+    letter-spacing: .1em;
+  }
+  .mobile-menu-link > b { color: var(--gold); font-size: 15px; }
+  .mobile-menu-link.is-disabled { color: rgba(255,255,255,.46); }
+  .mobile-menu-link.is-disabled em {
+    color: rgba(255,255,255,.35);
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 750;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .footer-block[id] { scroll-margin-top: 84px; }
   .hero { min-height: 0; padding: 0; background: #070707; }
   .hero-carousel {
     height: 620px;

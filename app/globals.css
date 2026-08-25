@@ -17,7 +17,7 @@ body {
   overflow-x: hidden;
   background: var(--ink);
   color: #fff;
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans, Arial), Helvetica, sans-serif;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -106,16 +106,16 @@ section[id] { scroll-margin-top: 96px; }
 .hero-slide picture, .hero-slide img { width: 100%; height: 100%; }
 .hero-slide picture { display: block; }
 .hero-slide img { object-fit: cover; object-position: center; user-select: none; }
-.hero-slide-pau::before {
+.hero-slide-backdrop {
   position: absolute;
   inset: -24px;
-  background: url('/assets/pau-yatay.jpg') center/cover no-repeat;
-  content: '';
   filter: blur(20px) brightness(.55);
   transform: scale(1.04);
+  pointer-events: none;
 }
-.hero-slide-pau picture { position: relative; z-index: 1; }
-.hero-slide-pau img { object-fit: contain; }
+.hero-slide-backdrop img { object-fit: cover; }
+.hero-slide-pau .hero-slide-poster { position: relative; z-index: 1; }
+.hero-slide-pau .hero-slide-poster img { object-fit: contain; }
 .hero-headline {
   position: absolute;
   z-index: 2;
@@ -503,7 +503,6 @@ footer {
     height: 620px;
   }
   .hero-slide img { object-position: center top; }
-  .hero-slide-pau::before { background-image: url('/assets/pau-dikey.jpg'); }
   .hero-headline {
     top: 42%;
     right: auto;

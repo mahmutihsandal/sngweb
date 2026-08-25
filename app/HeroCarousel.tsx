@@ -5,13 +5,13 @@ import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } f
 const slides = [
   {
     artist: 'Poizi',
-    image: '/assets/poizi-yatay.jpg',
-    mobileImage: '/assets/poizi-dikey.jpg',
+    image: 'assets/poizi-yatay.jpg',
+    mobileImage: 'assets/poizi-dikey.jpg',
   },
   {
     artist: 'PAU',
-    image: '/assets/pau-yatay.jpg',
-    mobileImage: '/assets/pau-dikey.jpg',
+    image: 'assets/pau-yatay.jpg',
+    mobileImage: 'assets/pau-dikey.jpg',
   },
 ] as const;
 
@@ -99,7 +99,13 @@ export default function HeroCarousel() {
             aria-label={`${index + 1} / ${slides.length}: ${slide.artist} konser afişi`}
             key={slide.artist}
           >
-            <picture>
+            {slide.artist === 'PAU' && (
+              <picture className="hero-slide-backdrop" aria-hidden="true">
+                <source media="(max-width: 760px)" srcSet={slide.mobileImage} />
+                <img src={slide.image} alt="" draggable={false} />
+              </picture>
+            )}
+            <picture className="hero-slide-poster">
               <source media="(max-width: 760px)" srcSet={slide.mobileImage} />
               <img
                 src={slide.image}

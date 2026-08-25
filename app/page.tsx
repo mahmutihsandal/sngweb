@@ -14,16 +14,16 @@ const events = [
     artist: 'POIZI',
     date: '01 EYLÜL',
     day: 'SALI',
-    image: '/assets/poizi-yatay.jpg',
-    mobileImage: '/assets/poizi-dikey.jpg',
+    image: 'assets/poizi-yatay.jpg',
+    mobileImage: 'assets/poizi-dikey.jpg',
     tone: 'gold',
   },
   {
     artist: 'PAU',
     date: '02 EYLÜL',
     day: 'ÇARŞAMBA',
-    image: '/assets/pau-yatay.jpg',
-    mobileImage: '/assets/pau-dikey.jpg',
+    image: 'assets/pau-yatay.jpg',
+    mobileImage: 'assets/pau-dikey.jpg',
     tone: 'red',
   },
 ] as const;
@@ -224,18 +224,18 @@ export default function Home() {
             krokiden inceleyebilirsiniz. Kırmızı işaretli alanlar kaynak krokide
             dolu veya satılmış olarak gösterilmektedir.
           </p>
-          <a href="/assets/yerlesim-krokisi.pdf" target="_blank" rel="noreferrer">
+          <a href="assets/yerlesim-krokisi.pdf" target="_blank" rel="noreferrer">
             Tam boy krokiyi aç <span aria-hidden="true">↗</span>
           </a>
         </div>
         <a
           className="plan-image"
-          href="/assets/yerlesim-krokisi.pdf"
+          href="assets/yerlesim-krokisi.pdf"
           target="_blank"
           rel="noreferrer"
           aria-label="Etkinlik alanı krokisini tam boy aç"
         >
-          <img src="/assets/yerlesim-krokisi.png" alt="Etkinlik alanı yerleşim ve satış krokisi" />
+          <img src="assets/yerlesim-krokisi.png" alt="Etkinlik alanı yerleşim ve satış krokisi" />
           <span>GÖRSELİ BÜYÜT ↗</span>
         </a>
       </section>
@@ -243,7 +243,7 @@ export default function Home() {
       <section className="reservation-section" id="rezervasyon" aria-labelledby="reservation-title">
         <div className="reservation-main">
           <div className="reservation-brand">
-            <img src="/assets/sng-ajans-logo.jpg" alt="SNG Ajans logosu" />
+            <img src="assets/sng-ajans-logo.jpg" alt="SNG Ajans logosu" />
             <div>
               <strong>SNG AJANS</strong>
               <span>RESMİ REZERVASYON KANALI</span>

@@ -1,0 +1,325 @@
+.page {
+  --wine: #7e1f1d;
+  --coral: #e8774f;
+  --cream: #f4efe6;
+  --ink: #241814;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+  height: 86px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 clamp(22px, 4.5vw, 76px);
+  border-bottom: 1px solid rgba(36,24,20,.18);
+}
+.brand { display: flex; align-items: baseline; gap: 9px; width: fit-content; }
+.brand strong { color: var(--wine); font-size: 25px; font-style: italic; letter-spacing: -.12em; }
+.brand span { font-family: Georgia, serif; font-size: 18px; font-style: italic; }
+.header nav { display: flex; gap: 33px; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.headerActions { justify-self: end; display: flex; align-items: center; gap: 10px; }
+.compareLink, .headerCta { padding: 12px 15px; font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.compareLink { border: 1px solid rgba(36,24,20,.34); }
+.headerCta { background: var(--wine); color: #fff; }
+
+.hero {
+  min-height: calc(100vh - 86px);
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  gap: clamp(34px, 5vw, 90px);
+  padding: 65px clamp(22px, 6vw, 104px) 80px;
+}
+.heroCopy { position: relative; z-index: 4; }
+.eyebrow { margin: 0 0 30px; color: var(--wine); font-size: 10px; font-weight: 850; letter-spacing: .2em; }
+.hero h1 { margin: 0; font-size: clamp(50px, 6vw, 98px); font-weight: 500; line-height: .88; letter-spacing: -.07em; }
+.hero h1 span { display: block; color: var(--wine); font-family: Georgia, serif; font-style: italic; font-weight: 400; }
+.lead { max-width: 510px; margin: 30px 0; color: rgba(36,24,20,.66); font-size: 14px; line-height: 1.7; }
+.heroActions { display: flex; gap: 10px; }
+.heroActions a { min-width: 205px; display: flex; justify-content: space-between; gap: 18px; border: 1px solid var(--ink); padding: 17px 18px; font-size: 11px; font-weight: 800; }
+.heroActions a:first-child { border-color: var(--wine); background: var(--wine); color: #fff; }
+.dateLine { display: flex; align-items: center; gap: 18px; margin-top: 48px; }
+.dateLine > span { color: var(--coral); font-family: Georgia, serif; font-size: 48px; font-style: italic; }
+.dateLine p { margin: 0; font-size: 9px; font-weight: 800; line-height: 1.65; letter-spacing: .14em; }
+
+.posterStage { position: relative; min-height: 620px; }
+.sun { position: absolute; width: 500px; height: 500px; right: -40px; top: 2%; border-radius: 50%; background: #e98b61; opacity: .88; }
+.posterOne, .posterTwo { position: absolute; margin: 0; background: #fff; box-shadow: 0 28px 70px rgba(75,32,23,.19); }
+.posterOne { z-index: 2; width: min(46%, 330px); left: 7%; top: 1%; transform: rotate(-4deg); }
+.posterTwo { z-index: 3; width: min(46%, 330px); right: 5%; bottom: 3%; transform: rotate(4deg); }
+.posterStage article img { width: 100%; aspect-ratio: 3 / 4.35; object-fit: cover; object-position: top; }
+.posterStage article p { display: flex; justify-content: space-between; margin: 0; padding: 15px 16px; font-size: 14px; font-weight: 850; }
+.posterStage article p span { color: rgba(36,24,20,.5); font-size: 9px; letter-spacing: .12em; }
+.venueTag { position: absolute; z-index: 4; left: -2%; bottom: 5%; margin: 0; transform: rotate(-90deg); transform-origin: left bottom; font-size: 8px; font-weight: 800; letter-spacing: .18em; }
+
+.nights { padding: 120px clamp(22px, 6vw, 104px); background: #fffaf3; }
+.sectionIntro {
+  display: grid;
+  grid-template-columns: .35fr 1fr .55fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 58px;
+  border-bottom: 1px solid rgba(36,24,20,.22);
+  padding-bottom: 34px;
+}
+.sectionIntro > p:first-child, .ticketsHeading > div > p, .planCopy > p:first-child,
+.scheduleHead > p, .bookingCopy > p:first-child {
+  color: var(--wine);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .18em;
+}
+.sectionIntro h2, .ticketsHeading h2, .planCopy h2, .scheduleHead h2, .bookingCopy h2 {
+  margin: 0;
+  font-size: clamp(45px, 5.3vw, 82px);
+  font-weight: 600;
+  line-height: .9;
+  letter-spacing: -.065em;
+}
+.sectionIntro h2 em, .ticketsHeading h2 em, .planCopy h2 em, .scheduleHead h2 em,
+.bookingCopy h2 em {
+  color: var(--wine);
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+.sectionIntro > p:last-child {
+  margin: 0;
+  color: rgba(36,24,20,.58);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.nightList { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.nightList article { overflow: hidden; border: 1px solid rgba(36,24,20,.18); background: var(--cream); }
+.nightImage { position: relative; height: min(31vw, 430px); overflow: hidden; }
+.nightImage img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.nightList article:hover .nightImage img { transform: scale(1.025); }
+.nightImage > span {
+  position: absolute;
+  right: 18px;
+  top: 16px;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 46px;
+  font-style: italic;
+  text-shadow: 0 3px 22px rgba(0,0,0,.3);
+}
+.nightInfo { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 10px 30px; padding: 28px; }
+.nightInfo p { grid-column: 1 / -1; margin: 0; color: var(--wine); font-size: 9px; font-weight: 850; letter-spacing: .15em; }
+.nightInfo h3 { margin: 0; font-size: clamp(40px, 5vw, 74px); line-height: .8; letter-spacing: -.06em; }
+.nightInfo a {
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 6px;
+  font-size: 10px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.tickets { padding: 120px clamp(22px, 6vw, 104px); background: var(--wine); color: #fffaf3; }
+.ticketsHeading { display: grid; grid-template-columns: 1fr .45fr; gap: 60px; align-items: end; margin-bottom: 58px; }
+.ticketsHeading > div > p { color: #f1ad8e; }
+.ticketsHeading h2 em { color: #f1ad8e; }
+.ticketsHeading > p { margin: 0; color: rgba(255,255,255,.66); font-size: 12px; line-height: 1.7; }
+.ticketList { border-top: 1px solid rgba(255,255,255,.34); }
+.ticketList > a {
+  display: grid;
+  grid-template-columns: 48px 1fr auto 30px;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,.34);
+  padding: 22px 4px;
+  transition: padding .2s ease, background .2s ease;
+}
+.ticketList > a:hover { padding-right: 14px; padding-left: 14px; background: rgba(255,255,255,.07); }
+.ticketIndex { color: rgba(255,255,255,.45); font-family: Georgia, serif; font-size: 13px; font-style: italic; }
+.ticketList h3 { margin: 0; font-size: clamp(19px, 2vw, 28px); letter-spacing: -.035em; }
+.ticketList p { margin: 5px 0 0; color: rgba(255,255,255,.56); font-size: 10px; }
+.ticketList strong { font-size: clamp(19px, 2vw, 28px); letter-spacing: -.04em; }
+.ticketArrow { font-size: 18px; text-align: right; }
+.includedNote { max-width: 770px; margin: 26px 0 0; color: rgba(255,255,255,.55); font-size: 10px; line-height: 1.65; }
+
+.plan {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  gap: clamp(50px, 8vw, 130px);
+  align-items: center;
+  padding: 120px clamp(22px, 6vw, 104px);
+  background: #e8dccb;
+}
+.planFrame { padding: 18px; background: var(--wine); box-shadow: 0 30px 70px rgba(78,35,26,.18); }
+.planFrame a { position: relative; display: block; max-height: 770px; overflow: hidden; background: #0c1322; }
+.planFrame img { width: 100%; object-fit: cover; object-position: top; }
+.planFrame span { position: absolute; right: 14px; bottom: 14px; padding: 12px 14px; background: #fffaf3; font-size: 9px; font-weight: 850; letter-spacing: .08em; }
+.planCopy h2 { margin: 27px 0; }
+.planCopy > p:not(:first-child) { max-width: 480px; margin: 0; color: rgba(36,24,20,.62); font-size: 13px; line-height: 1.75; }
+.planCopy > a {
+  display: inline-flex;
+  gap: 30px;
+  margin-top: 28px;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 7px;
+  font-size: 10px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: clamp(50px, 8vw, 140px);
+  padding: 120px clamp(22px, 6vw, 104px);
+  background: var(--ink);
+  color: #fffaf3;
+}
+.scheduleHead > p { color: #f1ad8e; }
+.scheduleHead h2 em { color: #f1ad8e; }
+.schedule ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(255,255,255,.2); }
+.schedule li {
+  display: grid;
+  grid-template-columns: 35px 140px 1fr;
+  gap: 18px;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  padding: 24px 0;
+}
+.schedule li > span { color: rgba(255,255,255,.3); font-family: Georgia, serif; font-size: 11px; font-style: italic; }
+.schedule time { color: #f1ad8e; font-size: 11px; font-weight: 850; }
+.schedule li h3 { margin: -5px 0 5px; font-size: 20px; letter-spacing: -.035em; }
+.schedule li p { margin: 0; color: rgba(255,255,255,.48); font-size: 10px; }
+
+.booking {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: clamp(50px, 8vw, 140px);
+  align-items: end;
+  padding: 120px clamp(22px, 6vw, 104px);
+  background: var(--coral);
+}
+.bookingCopy > p:first-child { color: var(--wine); }
+.bookingCopy h2 { margin: 27px 0; }
+.bookingCopy > p:not(:first-child) { max-width: 560px; margin: 0; color: rgba(36,24,20,.68); font-size: 13px; line-height: 1.7; }
+.bookingCopy > a {
+  max-width: 650px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  margin-top: 35px;
+  border-top: 1px solid rgba(36,24,20,.5);
+  border-bottom: 1px solid rgba(36,24,20,.5);
+  padding: 20px 2px;
+}
+.bookingCopy a small { grid-column: 1 / -1; margin-bottom: 6px; font-size: 8px; font-weight: 850; letter-spacing: .16em; }
+.bookingCopy a span { font-size: clamp(27px, 3vw, 44px); font-weight: 850; letter-spacing: -.04em; }
+.bookingCopy a b { font-size: 24px; }
+.bankCard { padding: clamp(28px, 4vw, 46px); background: #fffaf3; }
+.bankCard > div:first-child { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(36,24,20,.2); padding-bottom: 16px; font-size: 9px; font-weight: 850; letter-spacing: .13em; }
+.bankCard dl { margin: 0; }
+.bankCard dl > div { border-bottom: 1px solid rgba(36,24,20,.2); padding: 19px 0; }
+.bankCard dt { margin-bottom: 6px; color: rgba(36,24,20,.48); font-size: 8px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.bankCard dd { margin: 0; font-size: clamp(17px, 2vw, 24px); font-weight: 750; overflow-wrap: anywhere; }
+.bankCard > p { margin: 20px 0 0; color: rgba(36,24,20,.55); font-size: 10px; line-height: 1.6; }
+
+.ageNote {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 25px;
+  align-items: center;
+  padding: 26px clamp(22px, 4.5vw, 76px);
+  border-bottom: 1px solid rgba(36,24,20,.18);
+  background: var(--cream);
+}
+.ageNote span { color: var(--wine); font-family: Georgia, serif; font-size: 30px; font-style: italic; }
+.ageNote p { margin: 0; color: rgba(36,24,20,.58); font-size: 10px; }
+.ageNote p:last-child { text-align: right; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+.footer {
+  padding: 68px clamp(22px, 4.5vw, 76px) 28px;
+  border-top: 1px solid rgba(36,24,20,.18);
+  background: var(--cream);
+}
+.footerMain { display: grid; grid-template-columns: 1.05fr 1.35fr 1fr 1.15fr; gap: clamp(30px, 4vw, 68px); padding-bottom: 52px; }
+.footerIntro > p { max-width: 210px; margin: 22px 0 0; color: rgba(36,24,20,.5); font-size: 10px; line-height: 1.65; }
+.footerBlock { margin: 0; font-style: normal; }
+.footerLabel { display: block; margin-bottom: 20px; color: var(--wine); font-size: 8px; font-weight: 850; letter-spacing: .18em; }
+.footerBlock p { max-width: 320px; margin: 0; color: rgba(36,24,20,.58); font-size: 10px; line-height: 1.7; }
+.footerBlock > strong { display: block; margin-bottom: 7px; font-size: 12px; }
+.footerBlock:not(.footerSupport) > a { display: inline-block; margin-top: 15px; border-bottom: 1px solid rgba(36,24,20,.45); padding-bottom: 4px; font-size: 9px; font-weight: 850; text-transform: uppercase; }
+.footerSupport > a { display: block; width: fit-content; margin-top: 16px; color: var(--wine); }
+.footerSupport > a strong { display: block; margin-bottom: 6px; font-size: 17px; letter-spacing: -.025em; }
+.footerSupport > a span { border-bottom: 1px solid currentColor; padding-bottom: 3px; font-size: 9px; font-weight: 850; text-transform: uppercase; }
+.footerBottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid rgba(36,24,20,.18); padding-top: 24px; color: rgba(36,24,20,.43); font-size: 8px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+.footerBottom > div { display: flex; gap: 22px; }
+.footerBottom a { border-bottom: 1px solid rgba(36,24,20,.38); padding-bottom: 3px; }
+.mobileBooking { display: none; }
+
+@media (max-width: 900px) {
+  .header { grid-template-columns: 1fr auto; }
+  .header nav { display: none; }
+  .compareLink { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .posterStage { min-height: 600px; }
+  .sectionIntro { grid-template-columns: 1fr; }
+  .nightList { grid-template-columns: 1fr; }
+  .nightImage { height: min(57vw, 500px); }
+  .ticketsHeading, .plan, .schedule, .booking { grid-template-columns: 1fr; }
+  .footerMain { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ticketsHeading { gap: 30px; }
+  .planCopy { grid-row: 1; }
+}
+
+@media (max-width: 600px) {
+  .header { height: 72px; padding: 0 18px; }
+  .hero { padding: 58px 18px 80px; }
+  .hero h1 { font-size: clamp(45px, 14vw, 63px); }
+  .heroActions { flex-direction: column; }
+  .heroActions a { width: 100%; }
+  .posterStage { min-height: 500px; margin-top: 18px; }
+  .sun { width: 390px; height: 390px; right: -120px; }
+  .posterOne, .posterTwo { width: 55%; }
+  .posterOne { left: 0; }
+  .posterTwo { right: -4%; }
+  .nights, .tickets, .plan, .schedule, .booking { padding: 82px 18px; }
+  .sectionIntro { gap: 18px; margin-bottom: 36px; }
+  .sectionIntro h2, .ticketsHeading h2, .planCopy h2, .scheduleHead h2, .bookingCopy h2 { font-size: clamp(40px, 12vw, 56px); }
+  .nightImage { height: 390px; }
+  .nightInfo { grid-template-columns: 1fr; padding: 24px 20px; }
+  .nightInfo a { width: fit-content; margin-top: 10px; }
+  .ticketList > a { grid-template-columns: 30px 1fr auto; gap: 12px; }
+  .ticketList strong { grid-column: 2; }
+  .ticketArrow { grid-column: 3; grid-row: 1 / 3; }
+  .plan { gap: 44px; }
+  .planFrame { padding: 8px; }
+  .schedule { gap: 42px; }
+  .schedule li { grid-template-columns: 27px 95px 1fr; gap: 10px; }
+  .schedule li h3 { font-size: 16px; }
+  .booking { gap: 48px; }
+  .bookingCopy a span { font-size: 27px; }
+  .bankCard { padding: 28px 22px; }
+  .ageNote { grid-template-columns: auto 1fr; }
+  .ageNote p:last-child { grid-column: 1 / -1; text-align: left; }
+  .footer { padding: 52px 18px 104px; }
+  .footerMain { grid-template-columns: 1fr; gap: 38px; padding-bottom: 40px; }
+  .footerLabel { margin-bottom: 14px; }
+  .footerBottom { align-items: flex-start; flex-direction: column; }
+  .mobileBooking {
+    position: fixed;
+    z-index: 50;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 18px;
+    background: var(--wine);
+    color: #fff;
+    box-shadow: 0 14px 38px rgba(42,18,14,.3);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+}

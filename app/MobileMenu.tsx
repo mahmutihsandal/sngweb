@@ -172,11 +172,37 @@ export default function MobileMenu() {
             {isAboutOpen && (
               <div className="mobile-about" id="mobile-about">
                 <small>BİZ KİMİZ?</small>
-                <strong>SNG Biletim</strong>
-                <p>
-                  SNG Biletim, Fethiye’nin özel konser ve eğlence etkinliklerini
-                  hızlı, kolay ve doğrudan rezervasyon deneyimiyle buluşturur.
-                </p>
+                <strong>SNG Ajans</strong>
+
+                <div className="mobile-about-copy">
+                  <p>
+                    SNG Ajans, etkinlik, organizasyon, sanatçı yönetimi, konser, festival,
+                    marka iletişimi ve yaratıcı prodüksiyon alanlarında hizmet veren
+                    profesyonel bir organizasyon ajansıdır.
+                  </p>
+                  <p>
+                    Hayata geçirdiğimiz her projede; yaratıcılığı, güçlü organizasyon
+                    yeteneğini ve profesyonel operasyonu bir araya getirerek markalar ve
+                    sanatçılar için unutulmaz deneyimler oluşturmayı hedefliyoruz.
+                  </p>
+                  <p>
+                    Konserlerden festivallere, özel etkinliklerden kurumsal organizasyonlara
+                    kadar her projeyi kendi dinamikleri içerisinde değerlendiriyor; planlama,
+                    prodüksiyon, sanatçı koordinasyonu, sahne ve teknik operasyon, güvenlik,
+                    ulaşım ve etkinlik yönetimi süreçlerini bütüncül bir anlayışla yönetiyoruz.
+                  </p>
+                  <p>
+                    SNG Ajans olarak yalnızca bir etkinlik düzenlemiyor; fikrin oluşmasından
+                    etkinliğin son anına kadar tüm süreci yönetiyor, markaların ve misafirlerin
+                    beklentilerinin üzerinde deneyimler yaratıyoruz.
+                  </p>
+                </div>
+
+                <div className="mobile-about-signature">
+                  <span>Eşsiz bir akşam, sınırsız eğlence.</span>
+                  <strong>SNG Ajans</strong>
+                  <em>Hayal et. Planla. Gerçekleştir.</em>
+                </div>
               </div>
             )}
           </nav>

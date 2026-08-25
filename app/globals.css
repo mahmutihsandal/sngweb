@@ -683,12 +683,40 @@ footer {
     font-size: 15px;
     letter-spacing: -.01em;
   }
-  .mobile-about > p {
+  .mobile-about-copy {
+    display: grid;
+    gap: 12px;
+  }
+  .mobile-about-copy p {
     max-width: 320px;
     margin: 0;
     color: rgba(255,255,255,.62);
     font-size: 10px;
     line-height: 1.65;
+  }
+  .mobile-about-signature {
+    display: flex;
+    flex-direction: column;
+    margin-top: 19px;
+    border-left: 2px solid var(--gold);
+    padding: 3px 0 3px 13px;
+  }
+  .mobile-about-signature span {
+    margin-bottom: 14px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 750;
+  }
+  .mobile-about-signature strong {
+    margin-bottom: 3px;
+    color: var(--gold);
+    font-size: 13px;
+  }
+  .mobile-about-signature em {
+    color: rgba(255,255,255,.52);
+    font-size: 9px;
+    font-style: normal;
+    letter-spacing: .03em;
   }
   .night-menu-modal {
     position: fixed;
@@ -821,16 +849,29 @@ footer {
   .program-layout { gap: 45px; }
   .timeline li { grid-template-columns: 28px 105px 1fr; gap: 12px; }
   .timeline h3 { font-size: 17px; }
-  .plan-section, .reservation-section { padding: 84px 18px 92px; }
+  .plan-section { padding: 84px 18px 92px; }
+  .reservation-section { padding: 48px 18px 56px; }
   .plan-section { gap: 45px; }
   .plan-image { padding: 6px; }
   .plan-image span { right: 14px; bottom: 14px; }
-  .reservation-section { gap: 14px; }
-  .reservation-main { padding: 27px 22px; }
-  .reservation-brand { margin-bottom: 22px; }
-  .reservation-brand img { width: 86px; height: 86px; }
-  .reservation-main h2 { font-size: clamp(42px, 12vw, 58px); }
-  .whatsapp-large > span { font-size: 27px; }
+  .reservation-section { gap: 12px; }
+  .reservation-main { padding: 22px 20px 24px; }
+  .reservation-brand { gap: 13px; margin-bottom: 18px; }
+  .reservation-brand img { width: 64px; height: 64px; }
+  .reservation-brand strong { margin-bottom: 5px; font-size: 13px; }
+  .reservation-brand span { font-size: 7px; }
+  .reservation-main .section-number { font-size: 8px; }
+  .reservation-main h2 {
+    margin: 14px 0;
+    font-size: clamp(32px, 8.8vw, 38px);
+    line-height: .92;
+    letter-spacing: -.055em;
+  }
+  .reservation-lead { margin-bottom: 18px; font-size: 11px; line-height: 1.55; }
+  .whatsapp-large { padding: 13px 14px; }
+  .whatsapp-large > span { font-size: 20px; letter-spacing: -.025em; }
+  .whatsapp-large small { margin-bottom: 5px; font-size: 7px; }
+  .whatsapp-large b { font-size: 20px; }
   .payment-card { padding: 28px 22px; }
   .info-strip { grid-template-columns: 1fr; padding-bottom: 10px; }
   .info-strip p { border-right: 0; border-bottom: 1px solid var(--line); }

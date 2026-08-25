@@ -905,7 +905,16 @@ footer {
   .hero-copy h1 .hero-heading-accent { margin-top: 6px; }
   .hero-visual { align-self: end; }
   .hero-actions { max-width: none; gap: 8px; margin-top: 8px; }
-  .hero-actions a { min-width: 0; flex: 1 1 165px; min-height: 48px; gap: 14px; padding: 0 14px; font-size: 9px; }
+  .hero-actions a {
+    min-width: 0;
+    flex: 1 1 165px;
+    min-height: 48px;
+    gap: 8px;
+    padding: 0 10px;
+    font-size: 10.5px;
+    letter-spacing: .015em;
+    white-space: nowrap;
+  }
   .hero-details { gap: 17px; margin-top: 18px; }
   .hero-details p + p { padding-left: 17px; }
   .hero-details p:first-child strong { font-size: 29px; }

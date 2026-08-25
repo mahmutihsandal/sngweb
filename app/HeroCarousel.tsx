@@ -1,6 +1,12 @@
 'use client';
 
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+} from 'react';
 
 const slides = [
   {
@@ -15,28 +21,40 @@ const slides = [
   },
 ] as const;
 
-const SWIPE_THRESHOLD_PX = 40;
+const AUTO_ADVANCE_DELAY_MS = 5000;
+const SWIPE_THRESHOLD_PX = 20;
+const DRAG_SENSITIVITY = 1.35;
 
 export default function HeroCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const autoAdvanceTimerRef = useRef<number | null>(null);
   const dragRef = useRef({ pointerId: -1, startX: 0, startScrollLeft: 0, startIndex: 0 });
   const [activeSlide, setActiveSlide] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
+  const clearAutoAdvanceTimer = useCallback(() => {
+    if (autoAdvanceTimerRef.current === null) return;
+
+    window.clearTimeout(autoAdvanceTimerRef.current);
+    autoAdvanceTimerRef.current = null;
+  }, []);
+
   useEffect(() => {
+    clearAutoAdvanceTimer();
     if (isDragging || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const timer = window.setTimeout(() => {
+    autoAdvanceTimerRef.current = window.setTimeout(() => {
+      autoAdvanceTimerRef.current = null;
       const track = trackRef.current;
-      if (!track) return;
+      if (!track || dragRef.current.pointerId !== -1) return;
 
       const nextIndex = (activeSlide + 1) % slides.length;
       track.scrollTo({ left: track.clientWidth * nextIndex, behavior: 'smooth' });
       setActiveSlide(nextIndex);
-    }, 3000);
+    }, AUTO_ADVANCE_DELAY_MS);
 
-    return () => window.clearTimeout(timer);
-  }, [activeSlide, isDragging]);
+    return clearAutoAdvanceTimer;
+  }, [activeSlide, clearAutoAdvanceTimer, isDragging]);
 
   const handleScroll = () => {
     const track = trackRef.current;
@@ -49,11 +67,16 @@ export default function HeroCarousel() {
     const track = trackRef.current;
     if (!track) return;
 
+    clearAutoAdvanceTimer();
+    const currentScrollLeft = track.scrollLeft;
+    track.scrollTo({ left: currentScrollLeft, behavior: 'auto' });
+    track.style.scrollSnapType = 'none';
+
     dragRef.current = {
       pointerId: event.pointerId,
       startX: event.clientX,
-      startScrollLeft: track.scrollLeft,
-      startIndex: Math.round(track.scrollLeft / track.clientWidth),
+      startScrollLeft: currentScrollLeft,
+      startIndex: Math.round(currentScrollLeft / track.clientWidth),
     };
     track.setPointerCapture(event.pointerId);
     setIsDragging(true);
@@ -63,26 +86,31 @@ export default function HeroCarousel() {
     const track = trackRef.current;
     if (!track || dragRef.current.pointerId !== event.pointerId) return;
 
-    track.scrollLeft = dragRef.current.startScrollLeft - (event.clientX - dragRef.current.startX);
+    const dragDistance = event.clientX - dragRef.current.startX;
+    track.scrollLeft = dragRef.current.startScrollLeft - dragDistance * DRAG_SENSITIVITY;
   };
 
-  const finishDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+  const completeDrag = (event: ReactPointerEvent<HTMLDivElement>, allowSlideChange: boolean) => {
     const track = trackRef.current;
     if (!track || dragRef.current.pointerId !== event.pointerId) return;
 
-    if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
-    dragRef.current.pointerId = -1;
-    setIsDragging(false);
-
     const swipeDistance = event.clientX - dragRef.current.startX;
     const direction = swipeDistance < 0 ? 1 : -1;
-    const nextIndex = Math.abs(swipeDistance) >= SWIPE_THRESHOLD_PX
+    const nextIndex = allowSlideChange && Math.abs(swipeDistance) >= SWIPE_THRESHOLD_PX
       ? Math.max(0, Math.min(slides.length - 1, dragRef.current.startIndex + direction))
       : dragRef.current.startIndex;
+
+    dragRef.current.pointerId = -1;
+    if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
+    track.style.scrollSnapType = '';
+    setIsDragging(false);
 
     track.scrollTo({ left: track.clientWidth * nextIndex, behavior: 'smooth' });
     setActiveSlide(nextIndex);
   };
+
+  const finishDrag = (event: ReactPointerEvent<HTMLDivElement>) => completeDrag(event, true);
+  const cancelDrag = (event: ReactPointerEvent<HTMLDivElement>) => completeDrag(event, false);
 
   return (
     <div
@@ -97,7 +125,8 @@ export default function HeroCarousel() {
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={finishDrag}
-        onPointerCancel={finishDrag}
+        onPointerCancel={cancelDrag}
+        onLostPointerCapture={cancelDrag}
       >
         {slides.map((slide, index) => (
           <div

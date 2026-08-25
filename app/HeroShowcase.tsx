@@ -23,19 +23,6 @@ export default function HeroShowcase() {
           <span className="hero-heading-line">KIYISINDA</span>
           <span className="hero-heading-accent">İKİ BÜYÜK GECE.</span>
         </h1>
-        <p className="hero-description">
-          Gün batımı, sahne ışıkları ve iki ayrı canlı performans. Poizi ve PAU
-          için yerini WhatsApp üzerinden ayır.
-        </p>
-
-        <div className="hero-actions">
-          <a className="hero-primary-action" href="#biletler">
-            Bilet seçenekleri <span aria-hidden="true">↓</span>
-          </a>
-          <a className="hero-secondary-action" href="#etkinlikler">
-            Geceleri keşfet <span aria-hidden="true">↘</span>
-          </a>
-        </div>
 
         <div className="hero-details" aria-label="Etkinlik özeti">
           <p>
@@ -49,27 +36,38 @@ export default function HeroShowcase() {
         </div>
       </div>
 
-      <div className="hero-art" aria-label="Poizi ve PAU konser afişleri">
-        <span className="hero-art-orbit" aria-hidden="true" />
-        <span className="hero-art-note" aria-hidden="true">
-          SNG BİLETİM · LIVE MUSIC · FETHİYE
-        </span>
-        {posters.map((poster, index) => (
-          <figure className={`hero-poster-card ${poster.className}`} key={poster.artist}>
-            <div className="hero-poster-image">
-              <img
-                src={poster.image}
-                alt={`${poster.artist} konser afişi`}
-                loading="eager"
-                fetchPriority={index === 0 ? 'high' : 'auto'}
-              />
-            </div>
-            <figcaption>
-              <span>{poster.date}</span>
-              <strong>{poster.artist}</strong>
-            </figcaption>
-          </figure>
-        ))}
+      <div className="hero-visual">
+        <div className="hero-art" aria-label="Poizi ve PAU konser afişleri">
+          <span className="hero-art-orbit" aria-hidden="true" />
+          <span className="hero-art-note" aria-hidden="true">
+            SNG BİLETİM · LIVE MUSIC · FETHİYE
+          </span>
+          {posters.map((poster, index) => (
+            <figure className={`hero-poster-card ${poster.className}`} key={poster.artist}>
+              <div className="hero-poster-image">
+                <img
+                  src={poster.image}
+                  alt={`${poster.artist} konser afişi`}
+                  loading="eager"
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                />
+              </div>
+              <figcaption>
+                <span>{poster.date}</span>
+                <strong>{poster.artist}</strong>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="hero-actions">
+          <a className="hero-primary-action" href="#biletler">
+            Bilet seçenekleri <span aria-hidden="true">↓</span>
+          </a>
+          <a className="hero-secondary-action" href="#etkinlikler">
+            Geceleri keşfet <span aria-hidden="true">↘</span>
+          </a>
+        </div>
       </div>
     </div>
   );

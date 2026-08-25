@@ -2,13 +2,13 @@ const posters = [
   {
     artist: 'POIZI',
     date: '01 EYLÜL',
-    image: '/assets/poizi-dikey.jpg',
+    image: 'assets/poizi-dikey.jpg',
     className: 'hero-poster-poizi',
   },
   {
     artist: 'PAU',
     date: '02 EYLÜL',
-    image: '/assets/pau-dikey.jpg',
+    image: 'assets/pau-dikey.jpg',
     className: 'hero-poster-pau',
   },
 ] as const;

@@ -23,21 +23,10 @@ export default function MobileMenu() {
       setIsDirectionsOpen(false);
       setIsAboutOpen(false);
     };
-    const desktopMedia = window.matchMedia('(min-width: 761px)');
-    const closeOnDesktop = () => {
-      if (!desktopMedia.matches) return;
-      setIsOpen(false);
-      setIsNightMenuOpen(false);
-      setIsDirectionsOpen(false);
-      setIsAboutOpen(false);
-    };
-
     window.addEventListener('keydown', closeOnEscape);
-    desktopMedia.addEventListener('change', closeOnDesktop);
 
     return () => {
       window.removeEventListener('keydown', closeOnEscape);
-      desktopMedia.removeEventListener('change', closeOnDesktop);
     };
   }, [isNightMenuOpen, isOpen]);
 
@@ -64,7 +53,7 @@ export default function MobileMenu() {
         className="mobile-menu-button"
         type="button"
         aria-expanded={isOpen}
-        aria-controls="mobile-navigation"
+        aria-controls="site-navigation-menu"
         ref={menuButtonRef}
         onClick={() => {
           if (isOpen) {
@@ -90,7 +79,7 @@ export default function MobileMenu() {
               setIsAboutOpen(false);
             }}
           />
-          <nav className="mobile-menu-panel" id="mobile-navigation" aria-label="Mobil menü">
+          <nav className="mobile-menu-panel" id="site-navigation-menu" aria-label="Site menüsü">
             <p>HIZLI ERİŞİM</p>
 
             <button

@@ -164,9 +164,6 @@ export default function Home() {
           <a href="#biletler">Biletler</a>
           <a href="#kroki">Kroki</a>
         </nav>
-        <a className="header-cta" href={generalWhatsappUrl} target="_blank" rel="noreferrer">
-          WhatsApp’tan Al
-        </a>
         <MobileMenu />
       </header>
 

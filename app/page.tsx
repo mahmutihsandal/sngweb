@@ -113,10 +113,6 @@ const generalWarnings = [
     text: '18 yaş altı misafirler ebeveynleriyle birlikte konsere katılabilir.',
   },
   {
-    icon: '🎟️',
-    text: 'Biletinizi konser sonuna kadar saklayınız.',
-  },
-  {
     icon: '🔄',
     text: 'Satın alınan biletlerde iade ve değişiklik yapılamaz.',
   },

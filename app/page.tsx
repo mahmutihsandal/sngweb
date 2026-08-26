@@ -90,16 +90,8 @@ const program = [
 
 const generalWarnings = [
   {
-    icon: '🎫',
-    text: 'Konser alanına girişte bilet kontrolü ve güvenlik araması yapılacaktır.',
-  },
-  {
     icon: '🔞',
     text: '18 yaş altı misafirler ebeveynleriyle birlikte konsere katılabilir.',
-  },
-  {
-    icon: '🚫',
-    text: 'Konser alanına cam şişe, yanıcı/parlayıcı madde, kesici-delici alet ve güvenlik açısından tehlike oluşturabilecek eşyalar alınmayacaktır.',
   },
   {
     icon: '🎟️',
@@ -353,21 +345,46 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="general-warnings-content">
-          <ul className="general-warnings-list">
-            {generalWarnings.map((warning) => (
-              <li key={warning.text}>
-                <span aria-hidden="true">{warning.icon}</span>
-                <p>{warning.text}</p>
+        <details className="general-warnings-details">
+          <summary className="general-warnings-toggle">
+            <span>GENEL UYARILARI GÖR</span>
+            <span className="general-warnings-toggle-side">
+              AÇ / KAPAT <b aria-hidden="true">⌄</b>
+            </span>
+          </summary>
+
+          <div className="general-warnings-content">
+            <ul className="general-warnings-list">
+              <li className="general-warnings-safety">
+                <span aria-hidden="true">⚠️</span>
+                <div>
+                  <h3>GÜVENLİK UYARISI</h3>
+                  <p>Etkinlik girişinde güvenlik araması yapılacaktır.</p>
+                  <p>
+                    Kesici, delici ve etkinlik alanına alınması yasak olan hiçbir
+                    malzeme alana sokulmayacaktır.
+                  </p>
+                  <p>
+                    Lütfen girişte güvenlik kontrollerine yardımcı olmanızı ve
+                    yasaklı malzemelerle gelmemenizi rica ederiz.
+                  </p>
+                  <strong>🎫 Güvenli ve keyifli bir etkinlik için kurallara uyalım.</strong>
+                </div>
               </li>
-            ))}
-          </ul>
-          <p className="general-warnings-closing">
-            <span aria-hidden="true">❤️</span>
-            Eğlencenin, müziğin ve güvenliğin ön planda olduğu keyifli bir gece
-            geçirmenizi dileriz.
-          </p>
-        </div>
+              {generalWarnings.map((warning) => (
+                <li key={warning.text}>
+                  <span aria-hidden="true">{warning.icon}</span>
+                  <p>{warning.text}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="general-warnings-closing">
+              <span aria-hidden="true">❤️</span>
+              Eğlencenin, müziğin ve güvenliğin ön planda olduğu keyifli bir gece
+              geçirmenizi dileriz.
+            </p>
+          </div>
+        </details>
       </section>
 
       <footer>

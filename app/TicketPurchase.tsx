@@ -10,6 +10,7 @@ type ArtistOption = {
 
 type TicketPurchaseProps = {
   artistOptions: readonly ArtistOption[];
+  enableQuantity: boolean;
   maxPeople: number;
   priceMode: 'package' | 'per-person';
   ticketName: string;
@@ -24,6 +25,7 @@ const formatPrice = (price: number) =>
 
 export default function TicketPurchase({
   artistOptions,
+  enableQuantity,
   maxPeople,
   priceMode,
   ticketName,
@@ -34,49 +36,45 @@ export default function TicketPurchase({
   const totalPrice = priceMode === 'per-person' ? unitPrice * people : unitPrice;
 
   const whatsappLink = (artist: ArtistOption) => {
-    const priceDetail =
-      priceMode === 'package'
-        ? `Paket fiyatı: ${ticketPrice}.`
-        : `Birim fiyat: ${ticketPrice}. Toplam: ${formatPrice(totalPrice)}.`;
-    const message = `Merhaba, ${artist.date} ${artist.artist} konseri için ${ticketName} rezervasyonu yapmak istiyorum. Kişi sayısı: ${people}. ${priceDetail}`;
+    const message = enableQuantity
+      ? `Merhaba, ${artist.date} ${artist.artist} konseri için ${ticketName} rezervasyonu yapmak istiyorum. Kişi sayısı: ${people}. Birim fiyat: ${ticketPrice}. Toplam: ${formatPrice(totalPrice)}.`
+      : `Merhaba, ${artist.date} ${artist.artist} konseri için ${ticketName} (${ticketPrice}) rezervasyonu yapmak istiyorum.`;
 
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   };
 
   return (
     <div className="ticket-purchase">
-      <div className="ticket-person-selector">
-        <div className="ticket-person-copy">
-          <span>KİŞİ SAYISI</span>
-          <small>
-            {priceMode === 'package'
-              ? `En fazla ${maxPeople} kişi · Paket ${formatPrice(totalPrice)}`
-              : `Toplam ${formatPrice(totalPrice)}`}
-          </small>
+      {enableQuantity && (
+        <div className="ticket-person-selector">
+          <div className="ticket-person-copy">
+            <span>KİŞİ SAYISI</span>
+            <small>Toplam {formatPrice(totalPrice)}</small>
+          </div>
+          <div className="ticket-stepper" role="group" aria-label={`${ticketName} kişi sayısı`}>
+            <button
+              type="button"
+              onClick={() => setPeople((current) => Math.max(1, current - 1))}
+              disabled={people === 1}
+              aria-label="Kişi sayısını azalt"
+            >
+              −
+            </button>
+            <output aria-live="polite">
+              <strong>{people}</strong>
+              <small>KİŞİ</small>
+            </output>
+            <button
+              type="button"
+              onClick={() => setPeople((current) => Math.min(maxPeople, current + 1))}
+              disabled={people === maxPeople}
+              aria-label="Kişi sayısını artır"
+            >
+              +
+            </button>
+          </div>
         </div>
-        <div className="ticket-stepper" role="group" aria-label={`${ticketName} kişi sayısı`}>
-          <button
-            type="button"
-            onClick={() => setPeople((current) => Math.max(1, current - 1))}
-            disabled={people === 1}
-            aria-label="Kişi sayısını azalt"
-          >
-            −
-          </button>
-          <output aria-live="polite">
-            <strong>{people}</strong>
-            <small>KİŞİ</small>
-          </output>
-          <button
-            type="button"
-            onClick={() => setPeople((current) => Math.min(maxPeople, current + 1))}
-            disabled={people === maxPeople}
-            aria-label="Kişi sayısını artır"
-          >
-            +
-          </button>
-        </div>
-      </div>
+      )}
 
       <p className="ticket-purchase-label">BİLETİNİ AL · SANATÇINI SEÇ</p>
       <div className="ticket-artist-options">
@@ -86,7 +84,7 @@ export default function TicketPurchase({
             href={whatsappLink(artist)}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${artist.date} ${artist.artist} konseri, ${ticketName}, ${people} kişi: WhatsApp'tan rezervasyon yap`}
+            aria-label={`${artist.date} ${artist.artist} konseri, ${ticketName}${enableQuantity ? `, ${people} kişi` : ''}: WhatsApp'tan rezervasyon yap`}
             key={artist.artist}
           >
             <span>

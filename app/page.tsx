@@ -259,6 +259,7 @@ export default function Home() {
               <p className="ticket-perks">{ticket.perks}</p>
               <TicketPurchase
                 artistOptions={events}
+                enableQuantity={ticket.priceMode === 'per-person'}
                 maxPeople={ticket.capacity}
                 priceMode={ticket.priceMode}
                 ticketName={ticket.name}

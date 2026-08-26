@@ -238,17 +238,29 @@ export default function Home() {
               <h3>{ticket.name}</h3>
               <p className="ticket-price">{ticket.price}</p>
               <p className="ticket-perks">{ticket.perks}</p>
-              <a
-                className="ticket-card-cta"
-                href={whatsappLink(
-                  `Merhaba, ${ticket.name} (${ticket.price}) için rezervasyon yapmak istiyorum.`,
-                )}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`${ticket.name}, ${ticket.price}: WhatsApp'tan rezervasyon yap`}
-              >
-                Biletini al <span aria-hidden="true">→</span>
-              </a>
+              <div className="ticket-purchase">
+                <p className="ticket-purchase-label">BİLETİNİ AL · SANATÇINI SEÇ</p>
+                <div className="ticket-artist-options">
+                  {events.map((event) => (
+                    <a
+                      className={`ticket-artist-option ticket-artist-${event.tone}`}
+                      href={whatsappLink(
+                        `Merhaba, ${event.date} ${event.artist} konseri için ${ticket.name} (${ticket.price}) rezervasyonu yapmak istiyorum.`,
+                      )}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${event.date} ${event.artist} konseri, ${ticket.name}, ${ticket.price}: WhatsApp'tan rezervasyon yap`}
+                      key={event.artist}
+                    >
+                      <span>
+                        <strong>{event.artist}</strong>
+                        <small>{event.date}</small>
+                      </span>
+                      <b aria-hidden="true">→</b>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </article>
           ))}
         </div>

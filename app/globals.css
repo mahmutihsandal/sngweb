@@ -516,6 +516,66 @@ section[id] { scroll-margin-top: 96px; }
   margin-top: auto;
   padding-top: 3px;
 }
+.ticket-person-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  border-top: 1px solid #d7d2c8;
+  padding-top: 12px;
+}
+.ticket-person-copy { min-width: 0; }
+.ticket-person-copy > span {
+  display: block;
+  color: #25221d;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+.ticket-person-copy > small {
+  display: block;
+  margin-top: 5px;
+  color: #777168;
+  font-size: 7px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.ticket-stepper {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 34px 45px 34px;
+  min-height: 42px;
+  border: 1px solid #c7c1b6;
+  background: #fff;
+}
+.ticket-stepper button {
+  border: 0;
+  padding: 0;
+  background: #ece8df;
+  color: #171717;
+  font: inherit;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.ticket-stepper button:hover:not(:disabled),
+.ticket-stepper button:focus-visible { background: #171717; color: #fff; }
+.ticket-stepper button:focus-visible { outline: 3px solid #0b67d0; outline-offset: 2px; }
+.ticket-stepper button:disabled { color: #aaa49b; cursor: not-allowed; opacity: .55; }
+.ticket-stepper output {
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+.ticket-stepper output strong { font-size: 15px; line-height: 1; }
+.ticket-stepper output small {
+  margin-top: 3px;
+  color: #777168;
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
 .ticket-purchase-label {
   margin: 0 0 8px;
   color: #6d685f;

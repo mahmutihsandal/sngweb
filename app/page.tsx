@@ -1,5 +1,6 @@
 import HeroShowcase from './HeroShowcase';
 import MobileMenu from './MobileMenu';
+import TicketPurchase from './TicketPurchase';
 import TransportAnnouncement from './TransportAnnouncement';
 
 const whatsappNumber = '905301802390';
@@ -38,6 +39,9 @@ const tickets = [
     price: '70.000 TL',
     perks: '2 adet 70’lik içki · Meze tabağı · Meyve tabağı',
     accent: 'vip',
+    capacity: 6,
+    priceMode: 'package',
+    unitPrice: 70000,
   },
   {
     group: 'LOCA · 6 KİŞİ',
@@ -46,6 +50,9 @@ const tickets = [
     price: '50.000 TL',
     perks: '2 adet 70’lik içki · Meze tabağı · Meyve tabağı',
     accent: 'loca',
+    capacity: 6,
+    priceMode: 'package',
+    unitPrice: 50000,
   },
   {
     group: 'BİSTRO · 3 KİŞİ',
@@ -54,6 +61,9 @@ const tickets = [
     price: '25.000 TL',
     perks: '1 adet 70 cl içki · Çerez tabağı',
     accent: 'bistro-gold',
+    capacity: 3,
+    priceMode: 'package',
+    unitPrice: 25000,
   },
   {
     group: 'BİSTRO · 3 KİŞİ',
@@ -62,6 +72,9 @@ const tickets = [
     price: '15.000 TL',
     perks: '1 adet 70 cl içki · Çerez tabağı',
     accent: 'bistro-silver',
+    capacity: 3,
+    priceMode: 'package',
+    unitPrice: 15000,
   },
   {
     group: 'TEK KİŞİLİK',
@@ -70,6 +83,9 @@ const tickets = [
     price: '1.350 TL',
     perks: 'Sahneye yakın ayakta izleme alanı',
     accent: 'middle',
+    capacity: 10,
+    priceMode: 'per-person',
+    unitPrice: 1350,
   },
   {
     group: 'TEK KİŞİLİK',
@@ -78,6 +94,9 @@ const tickets = [
     price: '1.125 TL',
     perks: 'Ayakta arka genel izleme alanı',
     accent: 'rear',
+    capacity: 10,
+    priceMode: 'per-person',
+    unitPrice: 1125,
   },
 ] as const;
 
@@ -238,29 +257,14 @@ export default function Home() {
               <h3>{ticket.name}</h3>
               <p className="ticket-price">{ticket.price}</p>
               <p className="ticket-perks">{ticket.perks}</p>
-              <div className="ticket-purchase">
-                <p className="ticket-purchase-label">BİLETİNİ AL · SANATÇINI SEÇ</p>
-                <div className="ticket-artist-options">
-                  {events.map((event) => (
-                    <a
-                      className={`ticket-artist-option ticket-artist-${event.tone}`}
-                      href={whatsappLink(
-                        `Merhaba, ${event.date} ${event.artist} konseri için ${ticket.name} (${ticket.price}) rezervasyonu yapmak istiyorum.`,
-                      )}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${event.date} ${event.artist} konseri, ${ticket.name}, ${ticket.price}: WhatsApp'tan rezervasyon yap`}
-                      key={event.artist}
-                    >
-                      <span>
-                        <strong>{event.artist}</strong>
-                        <small>{event.date}</small>
-                      </span>
-                      <b aria-hidden="true">→</b>
-                    </a>
-                  ))}
-                </div>
-              </div>
+              <TicketPurchase
+                artistOptions={events}
+                maxPeople={ticket.capacity}
+                priceMode={ticket.priceMode}
+                ticketName={ticket.name}
+                ticketPrice={ticket.price}
+                unitPrice={ticket.unitPrice}
+              />
             </article>
           ))}
         </div>

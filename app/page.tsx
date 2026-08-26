@@ -1,5 +1,6 @@
 import HeroShowcase from './HeroShowcase';
 import MobileMenu from './MobileMenu';
+import TransportAnnouncement from './TransportAnnouncement';
 
 const whatsappNumber = '905301802390';
 
@@ -87,9 +88,58 @@ const program = [
   { time: '23:00—', title: 'İnteraktif Sahne Etkinlikleri', note: 'Gece devam ediyor' },
 ] as const;
 
+const generalWarnings = [
+  {
+    icon: '🎫',
+    text: 'Konser alanına girişte bilet kontrolü ve güvenlik araması yapılacaktır.',
+  },
+  {
+    icon: '🔞',
+    text: '18 yaş altı misafirler ebeveynleriyle birlikte konsere katılabilir.',
+  },
+  {
+    icon: '🚫',
+    text: 'Konser alanına cam şişe, yanıcı/parlayıcı madde, kesici-delici alet ve güvenlik açısından tehlike oluşturabilecek eşyalar alınmayacaktır.',
+  },
+  {
+    icon: '🎟️',
+    text: 'Biletinizi konser sonuna kadar saklayınız.',
+  },
+  {
+    icon: '🔄',
+    text: 'Satın alınan biletlerde iade ve değişiklik yapılamaz.',
+  },
+  {
+    icon: '🕐',
+    text: 'Konser alanına giriş ve etkinlik saatlerinde oluşabilecek yoğunluklara karşı erken gelmeniz tavsiye edilir.',
+  },
+  {
+    icon: '🧒',
+    text: 'Çocukların ve gençlerin etkinlik süresince ebeveynlerinin sorumluluğunda olduğunu hatırlatırız.',
+  },
+  {
+    icon: '📸',
+    text: 'Etkinlik alanında fotoğraf ve video çekimi yapılabilir. Etkinliğe katılan misafirler bu çekimlerde yer alabileceklerini kabul etmiş sayılır.',
+  },
+  {
+    icon: '⚠️',
+    text: 'Organizasyon güvenliği ve etkinlik düzeni gereği, kurallara uymayan kişiler alandan çıkarılabilir.',
+  },
+  {
+    icon: '🎤',
+    text: 'Organizasyon programında teknik veya operasyonel nedenlerle değişiklik yapılabilir.',
+  },
+  {
+    icon: '📍',
+    text: 'Konser alanında görevli personelin yönlendirmelerine uyulması zorunludur.',
+  },
+] as const;
+
 export default function Home() {
   return (
     <main>
+      <TransportAnnouncement />
+
       <header className="site-header">
         <a className="brand header-brand" href="#top" aria-label="SNG Biletim ve SNG Ajans ana sayfa">
           <span className="header-brand-wordmark">
@@ -210,7 +260,8 @@ export default function Home() {
         </div>
         <p className="price-note">
           Loca ve bistro fiyatları belirtilen kişi sayısının toplam grup fiyatıdır.
-          Güncel müsaitlik WhatsApp üzerinden teyit edilir.
+          Güncel müsaitlik WhatsApp üzerinden teyit edilir.{' '}
+          <a href="#genel-uyarilar">Bilet almadan önce genel uyarıları inceleyiniz.</a>
         </p>
       </section>
 
@@ -293,15 +344,34 @@ export default function Home() {
         </details>
       </section>
 
-      <section className="info-strip" aria-label="Önemli bilgiler">
-        <div className="age-warning">
-          <h2>🔞 +18 UYARISI</h2>
-          <p>Etkinliğimiz 18 yaş ve üzeri katılımcılara yöneliktir.</p>
+      <section
+        className="general-warnings-section"
+        id="genel-uyarilar"
+        aria-labelledby="general-warnings-title"
+      >
+        <div className="general-warnings-heading">
+          <p className="section-number">ETKİNLİK BİLGİLERİ</p>
+          <h2 id="general-warnings-title">GENEL<br />UYARILAR.</h2>
           <p>
-            18 yaş altı katılımcılar, yalnızca ebeveynleri eşliğinde etkinlik
-            alanına giriş yapabilir.
+            Güvenli ve keyifli bir etkinlik deneyimi için lütfen konser alanı
+            kurallarını dikkate alınız.
           </p>
-          <p>🎟️ Bilet alırken yaş sınırını dikkate almanızı rica ederiz.</p>
+        </div>
+
+        <div className="general-warnings-content">
+          <ul className="general-warnings-list">
+            {generalWarnings.map((warning) => (
+              <li key={warning.text}>
+                <span aria-hidden="true">{warning.icon}</span>
+                <p>{warning.text}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="general-warnings-closing">
+            <span aria-hidden="true">❤️</span>
+            Eğlencenin, müziğin ve güvenliğin ön planda olduğu keyifli bir gece
+            geçirmenizi dileriz.
+          </p>
         </div>
       </section>
 

@@ -294,15 +294,8 @@ export default function Home() {
 
       <section className="reservation-section" id="rezervasyon" aria-labelledby="reservation-title">
         <div className="reservation-main">
-          <div className="reservation-brand">
-            <img src="assets/sng-ajans-logo.jpg" alt="SNG Ajans logosu" />
-            <div>
-              <strong>SNG AJANS</strong>
-              <span>RESMİ REZERVASYON KANALI</span>
-            </div>
-          </div>
-          <p className="section-number">REZERVASYON</p>
-          <h2 id="reservation-title">BİLETİNİ<br />WHATSAPP’TAN AL.</h2>
+          <h2 className="reservation-heading" id="reservation-title">REZERVASYON</h2>
+          <h3 className="reservation-action-title">BİLETİNİ<br />WHATSAPP’TAN AL.</h3>
           <p className="reservation-lead">
             Etkinliği ve bilet kategorisini yazın. Müsaitlik teyidi ve ödeme
             kontrolü sonrasında rezervasyonunuz onaylansın.

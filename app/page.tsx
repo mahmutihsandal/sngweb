@@ -253,7 +253,7 @@ export default function Home() {
               <p className="ticket-price">{ticket.price}</p>
               <p className="ticket-perks">{ticket.perks}</p>
               <span className="ticket-card-cta">
-                WhatsApp’tan ayır <span aria-hidden="true">↗</span>
+                Biletini al <span aria-hidden="true">↗</span>
               </span>
             </a>
           ))}

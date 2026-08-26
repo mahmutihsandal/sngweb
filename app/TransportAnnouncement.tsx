@@ -36,7 +36,7 @@ export default function TransportAnnouncement() {
           className="transport-dialog-close"
           type="button"
           onClick={closeDialog}
-          aria-label="Ulaşım duyurusunu kapat"
+          aria-label="Ulaşım uyarısını kapat"
         >
           <span aria-hidden="true">×</span>
         </button>
@@ -44,7 +44,7 @@ export default function TransportAnnouncement() {
         <div className="transport-dialog-heading">
           <span className="transport-dialog-icon" aria-hidden="true">🚌</span>
           <div>
-            <p>ULAŞIM DUYURUSU</p>
+            <p>ULAŞIM UYARISI</p>
             <h2 id="transport-dialog-title">EK OTOBÜS SEFERLERİ</h2>
           </div>
         </div>

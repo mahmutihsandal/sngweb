@@ -129,6 +129,27 @@ export default function MobileMenu() {
                   <span>Fethiye / Muğla</span>
                 </address>
 
+                <aside className="mobile-transport-notice" aria-label="Ek otobüs seferleri duyurusu">
+                  <span className="mobile-transport-notice-label">
+                    <b aria-hidden="true">🚌</b> ULAŞIM DUYURUSU
+                  </span>
+                  <strong>EK OTOBÜS SEFERLERİ</strong>
+                  <p>
+                    Konser yoğunluğu nedeniyle ulaşımda kolaylık sağlamak amacıyla ek
+                    otobüs seferleri düzenlenecektir.
+                  </p>
+                  <dl>
+                    <div>
+                      <dt>GÜZERGÂH</dt>
+                      <dd>Merkez Cami Durağı <span aria-hidden="true">→</span> K. Samanlı Beach</dd>
+                    </div>
+                    <div>
+                      <dt>SEFER SAATLERİ</dt>
+                      <dd>18.00 – 23.30</dd>
+                    </div>
+                  </dl>
+                </aside>
+
                 <div className="mobile-directions-copy">
                   <p>
                     <strong>Özel Araç:</strong> Fethiye merkezden yarımada yolunu takip ederek

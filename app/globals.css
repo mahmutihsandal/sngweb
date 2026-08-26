@@ -66,8 +66,8 @@ section[id] { scroll-margin-top: 96px; }
   height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255,255,255,.28);
-  background: rgba(8,8,8,.55);
+  border: 1px solid var(--red);
+  background: var(--red);
   color: #fff;
   font: inherit;
   cursor: pointer;
@@ -75,7 +75,7 @@ section[id] { scroll-margin-top: 96px; }
 }
 .transport-dialog-close span { font-size: 27px; font-weight: 300; line-height: 1; }
 .transport-dialog-close:hover,
-.transport-dialog-close:focus-visible { border-color: #fff; background: #fff; color: #090909; }
+.transport-dialog-close:focus-visible { border-color: #ff625d; background: #ff625d; color: #fff; }
 .transport-dialog-heading { display: flex; align-items: center; gap: 17px; padding-right: 45px; }
 .transport-dialog-icon {
   width: 58px;
@@ -125,26 +125,11 @@ section[id] { scroll-margin-top: 96px; }
 .transport-dialog-details strong { font-size: 15px; line-height: 1.45; }
 .transport-dialog-details b { margin: 0 5px; color: var(--gold); }
 .transport-dialog-note {
-  margin: 20px 0 24px;
+  margin: 20px 0 0;
   color: rgba(255,255,255,.62);
   font-size: 12px;
   line-height: 1.6;
 }
-.transport-dialog-action {
-  width: 100%;
-  min-height: 52px;
-  border: 1px solid var(--gold);
-  background: var(--gold);
-  color: #090909;
-  font: inherit;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: .12em;
-  cursor: pointer;
-  transition: background .2s ease, border-color .2s ease;
-}
-.transport-dialog-action:hover,
-.transport-dialog-action:focus-visible { border-color: #ffd15b; background: #ffd15b; }
 
 @keyframes transport-dialog-in {
   from { opacity: 0; transform: translateY(18px) scale(.98); }
@@ -814,7 +799,7 @@ footer {
   .transport-dialog-lead { margin: 22px 0 17px; font-size: 12px; }
   .transport-dialog-details > div { grid-template-columns: 1fr; gap: 7px; padding: 14px 0; }
   .transport-dialog-details strong { font-size: 13px; }
-  .transport-dialog-note { margin: 16px 0 19px; font-size: 11px; }
+  .transport-dialog-note { margin: 16px 0 0; font-size: 11px; }
   .site-header { height: 72px; grid-template-columns: 1fr auto; padding: 0 18px; }
   .header-brand { gap: 8px; }
   .header-brand-wordmark { gap: 9px; }

@@ -68,10 +68,6 @@ export default function TransportAnnouncement() {
         <p className="transport-dialog-note">
           Konser alanına ulaşımınızı rahat ve güvenli şekilde sağlayabilirsiniz. 🎶
         </p>
-
-        <button className="transport-dialog-action" type="button" onClick={closeDialog}>
-          TAMAM, ANLADIM
-        </button>
       </div>
     </dialog>
   );

@@ -235,14 +235,8 @@ export default function Home() {
         </div>
         <div className="ticket-grid">
           {tickets.map((ticket) => (
-            <a
+            <article
               className={`ticket-card ticket-${ticket.accent}`}
-              href={whatsappLink(
-                `Merhaba, ${ticket.name} (${ticket.price}) için rezervasyon yapmak istiyorum.`,
-              )}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${ticket.name}, ${ticket.price}: WhatsApp'tan rezervasyon yap`}
               key={ticket.name}
             >
               <div className="ticket-topline">
@@ -252,10 +246,18 @@ export default function Home() {
               <h3>{ticket.name}</h3>
               <p className="ticket-price">{ticket.price}</p>
               <p className="ticket-perks">{ticket.perks}</p>
-              <span className="ticket-card-cta">
+              <a
+                className="ticket-card-cta"
+                href={whatsappLink(
+                  `Merhaba, ${ticket.name} (${ticket.price}) için rezervasyon yapmak istiyorum.`,
+                )}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${ticket.name}, ${ticket.price}: WhatsApp'tan rezervasyon yap`}
+              >
                 Biletini al <span aria-hidden="true">→</span>
-              </span>
-            </a>
+              </a>
+            </article>
           ))}
         </div>
         <p className="price-note">

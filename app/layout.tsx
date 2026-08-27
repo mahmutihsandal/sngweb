@@ -15,8 +15,37 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://sngbiletim.com'),
   title: 'SNG Biletim | Fethiye Konser Biletleri',
+  applicationName: 'SNG Biletim',
   description:
     'Poizi ve PAU konserleri için etkinlik bilgileri, bilet seçenekleri ve WhatsApp rezervasyonu.',
+  alternates: {
+    canonical: '/',
+  },
+  icons: {
+    icon: [
+      {
+        url: '/favicon.png',
+        type: 'image/png',
+        sizes: '512x512',
+      },
+    ],
+    apple: [
+      {
+        url: '/favicon.png',
+        type: 'image/png',
+        sizes: '512x512',
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+    },
+  },
   openGraph: {
     title: 'SNG Biletim | Fethiye’de İki Büyük Gece',
     description:
@@ -43,6 +72,26 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'SNG Biletim',
+  url: 'https://sngbiletim.com/',
+  description:
+    "Fethiye'deki Poizi ve PAU konserleri için etkinlik bilgileri, bilet seçenekleri ve WhatsApp rezervasyonu.",
+  inLanguage: 'tr-TR',
+  publisher: {
+    '@type': 'Organization',
+    name: 'SNG Ajans',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://sngbiletim.com/favicon.png',
+      width: 512,
+      height: 512,
+    },
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,6 +99,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

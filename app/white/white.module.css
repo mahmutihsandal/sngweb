@@ -151,11 +151,11 @@
   gap: 18px;
   padding: 72px 65px 0;
 }
-.planCard, .programCard { border: 1px solid var(--line); border-radius: 15px; padding: 24px; background: #fff; }
+.planCard, .programCard { min-width: 0; border: 1px solid var(--line); border-radius: 15px; padding: 24px; background: #fff; }
 .cardHead { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 18px; }
 .cardHead h2, .programCard h2 { margin: 6px 0 0; font-size: 24px; letter-spacing: -.04em; }
 .cardHead > a { border-bottom: 1px solid #222; padding-bottom: 4px; font-size: 9px; font-weight: 800; }
-.planImage { display: block; height: 570px; overflow: hidden; border-radius: 10px; background: #0c1322; }
+.planImage { position: relative; min-width: 0; width: 100%; display: block; height: 570px; overflow: hidden; border-radius: 10px; background: #0c1322; }
 .planImage img { width: 100%; object-fit: cover; object-position: top; }
 .programCard { display: flex; flex-direction: column; }
 .programCard ol { margin: 25px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import PlanCompass from '../PlanCompass';
 import styles from './white.module.css';
 
 const whatsappNumber = '905301802390';
@@ -174,6 +175,7 @@ export default function WhiteTheme() {
             </div>
             <a className={styles.planImage} href="/assets/yerlesim-krokisi.pdf" target="_blank" rel="noreferrer">
               <img src="/assets/yerlesim-krokisi.png" alt="Etkinlik alanı yerleşim krokisi" />
+              <PlanCompass />
             </a>
           </div>
           <div className={styles.programCard}>

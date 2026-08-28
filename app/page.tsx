@@ -1,5 +1,6 @@
 import HeroShowcase from './HeroShowcase';
 import MobileMenu from './MobileMenu';
+import PlanCompass from './PlanCompass';
 import TicketPurchase from './TicketPurchase';
 import TransportAnnouncement from './TransportAnnouncement';
 
@@ -275,8 +276,8 @@ export default function Home() {
           <h2 id="plan-title">SAHNEYE<br />NE KADAR YAKIN?</h2>
           <p>
             Loca, Gold ve Silver Bistro, orta ayakta ve arka genel alanları
-            krokiden inceleyebilirsiniz. Kırmızı işaretli alanlar kaynak krokide
-            dolu veya satılmış olarak gösterilmektedir.
+            krokiden inceleyebilirsiniz. Pusula, alanın gerçek kuzey yönüne göre
+            konumlandırılmıştır.
           </p>
           <a href="assets/yerlesim-krokisi.pdf" target="_blank" rel="noreferrer">
             Tam boy krokiyi aç <span aria-hidden="true">↗</span>
@@ -289,7 +290,8 @@ export default function Home() {
           rel="noreferrer"
           aria-label="Etkinlik alanı krokisini tam boy aç"
         >
-          <img src="assets/yerlesim-krokisi.png" alt="Etkinlik alanı yerleşim ve satış krokisi" />
+          <img src="assets/yerlesim-krokisi.png" alt="Etkinlik alanı masa ve izleme alanı yerleşim krokisi" />
+          <PlanCompass />
           <span>GÖRSELİ BÜYÜT ↗</span>
         </a>
       </section>

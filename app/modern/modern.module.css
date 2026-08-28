@@ -152,7 +152,7 @@
   padding: 120px clamp(22px, 6vw, 104px);
   background: #e8dccb;
 }
-.planFrame { padding: 18px; background: var(--wine); box-shadow: 0 30px 70px rgba(78,35,26,.18); }
+.planFrame { min-width: 0; padding: 18px; background: var(--wine); box-shadow: 0 30px 70px rgba(78,35,26,.18); }
 .planFrame a { position: relative; display: block; max-height: 770px; overflow: hidden; background: #0c1322; }
 .planFrame img { width: 100%; object-fit: cover; object-position: top; }
 .planFrame span { position: absolute; right: 14px; bottom: 14px; padding: 12px 14px; background: #fffaf3; font-size: 9px; font-weight: 850; letter-spacing: .08em; }

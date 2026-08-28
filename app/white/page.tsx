@@ -170,10 +170,10 @@ export default function WhiteTheme() {
           <div className={styles.planCard}>
             <div className={styles.cardHead}>
               <div><span className={styles.miniLabel}>MASA PLANI</span><h2 id="white-plan-title">Yerini önceden gör.</h2></div>
-              <a href="/assets/sahne-yerlesim.pdf" target="_blank" rel="noreferrer">Tam boy aç ↗</a>
+              <a href="/assets/sahne-yerlesim-yeni.png" target="_blank" rel="noreferrer">Tam boy aç ↗</a>
             </div>
-            <a className={styles.planImage} href="/assets/sahne-yerlesim.pdf" target="_blank" rel="noreferrer">
-              <img src="/assets/sahne-yerlesim.png" alt="Etkinlik alanı yerleşim krokisi" />
+            <a className={styles.planImage} href="/assets/sahne-yerlesim-yeni.png" target="_blank" rel="noreferrer">
+              <img src="/assets/sahne-yerlesim-yeni.png" alt="Etkinlik alanı yerleşim krokisi" />
             </a>
           </div>
           <div className={styles.programCard}>

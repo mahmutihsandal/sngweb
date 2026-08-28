@@ -178,8 +178,8 @@ export default function ModernBeachClub() {
 
       <section className={styles.plan} id="kroki" aria-labelledby="modern-plan-title">
         <div className={styles.planFrame}>
-          <a href="/assets/sahne-yerlesim.pdf" target="_blank" rel="noreferrer">
-            <img src="/assets/sahne-yerlesim.png" alt="Etkinlik alanı yerleşim krokisi" />
+          <a href="/assets/sahne-yerlesim-yeni.png" target="_blank" rel="noreferrer">
+            <img src="/assets/sahne-yerlesim-yeni.png" alt="Etkinlik alanı yerleşim krokisi" />
             <span>TAM BOY AÇ ↗</span>
           </a>
         </div>
@@ -190,7 +190,7 @@ export default function ModernBeachClub() {
             Loca, Gold ve Silver Bistro, orta ayakta ve arka genel alanların
             sahneye konumunu inceleyin.
           </p>
-          <a href="/assets/sahne-yerlesim.pdf" target="_blank" rel="noreferrer">
+          <a href="/assets/sahne-yerlesim-yeni.png" target="_blank" rel="noreferrer">
             Yerleşim krokisini incele <span>↗</span>
           </a>
         </div>

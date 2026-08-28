@@ -277,18 +277,18 @@ export default function Home() {
             Loca, Gold ve Silver Bistro, orta ayakta ve arka genel alanları
             krokiden inceleyebilirsiniz.
           </p>
-          <a href="assets/sahne-yerlesim.pdf" target="_blank" rel="noreferrer">
-            Tam boy krokiyi aç <span aria-hidden="true">↗</span>
+          <a href="assets/sahne-yerlesim-yeni.png" target="_blank" rel="noreferrer">
+            Tam boy görseli aç <span aria-hidden="true">↗</span>
           </a>
         </div>
         <a
           className="plan-image"
-          href="assets/sahne-yerlesim.pdf"
+          href="assets/sahne-yerlesim-yeni.png"
           target="_blank"
           rel="noreferrer"
           aria-label="Etkinlik alanı krokisini tam boy aç"
         >
-          <img src="assets/sahne-yerlesim.png" alt="Etkinlik alanı masa ve izleme alanı yerleşim krokisi" />
+          <img src="assets/sahne-yerlesim-yeni.png" alt="Etkinlik alanı masa ve izleme alanı yerleşim krokisi" />
           <span>GÖRSELİ BÜYÜT ↗</span>
         </a>
       </section>

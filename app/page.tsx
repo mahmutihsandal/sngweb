@@ -35,7 +35,7 @@ const tickets = [
   {
     group: 'LOCA · 6 KİŞİ',
     name: 'VIP LOCA',
-    detail: 'L7 / L14',
+    detail: 'L4 – L14',
     price: '70.000 TL',
     perks: '2 adet 70’lik içki · Meze tabağı · Meyve tabağı',
     accent: 'vip',
@@ -46,7 +46,7 @@ const tickets = [
   {
     group: 'LOCA · 6 KİŞİ',
     name: 'LOCA',
-    detail: 'L1 / L6',
+    detail: 'L1 – L3',
     price: '50.000 TL',
     perks: '2 adet 70’lik içki · Meze tabağı · Meyve tabağı',
     accent: 'loca',

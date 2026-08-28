@@ -8,8 +8,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
 )}`;
 
 const ticketOptions = [
-  { name: 'VIP Loca', detail: '6 kişilik · L7/L14', price: '70.000 TL' },
-  { name: 'Loca', detail: '6 kişilik · L1/L6', price: '50.000 TL' },
+  { name: 'VIP Loca', detail: '6 kişilik · L4–L14', price: '70.000 TL' },
+  { name: 'Loca', detail: '6 kişilik · L1–L3', price: '50.000 TL' },
   { name: 'Bistro Gold', detail: '3 kişilik · Sahne önü', price: '25.000 TL' },
   { name: 'Bistro Silver', detail: '3 kişilik · Bistro alanı', price: '15.000 TL' },
   { name: 'Orta Ayakta', detail: 'Tek kişilik · Orta bölüm', price: '1.350 TL' },

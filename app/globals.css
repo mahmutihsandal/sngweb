@@ -486,12 +486,19 @@ section[id] { scroll-margin-top: 96px; }
 .ticket-rear::before { background: #7f1d28; }
 .ticket-topline {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 14px;
   color: #67635b;
   font-size: 8px;
   font-weight: 750;
   letter-spacing: .12em;
+}
+.ticket-topline span:last-child {
+  color: #29251f;
+  font-size: clamp(12px, 1.05vw, 16px);
+  font-weight: 950;
+  letter-spacing: .04em;
 }
 .ticket-card h3 { margin: 23px 0 5px; font-size: clamp(20px, 1.8vw, 27px); font-weight: 850; letter-spacing: -.04em; }
 .ticket-price { margin: 0; font-size: clamp(27px, 2.5vw, 38px); font-weight: 900; letter-spacing: -.055em; }

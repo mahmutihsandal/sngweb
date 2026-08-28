@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import PlanCompass from '../PlanCompass';
 import styles from './modern.module.css';
 
 const whatsappNumber = '905301802390';
@@ -179,9 +178,8 @@ export default function ModernBeachClub() {
 
       <section className={styles.plan} id="kroki" aria-labelledby="modern-plan-title">
         <div className={styles.planFrame}>
-          <a href="/assets/yerlesim-krokisi.pdf" target="_blank" rel="noreferrer">
-            <img src="/assets/yerlesim-krokisi.png" alt="Etkinlik alanı yerleşim krokisi" />
-            <PlanCompass />
+          <a href="/assets/sahne-yerlesim.pdf" target="_blank" rel="noreferrer">
+            <img src="/assets/sahne-yerlesim.png" alt="Etkinlik alanı yerleşim krokisi" />
             <span>TAM BOY AÇ ↗</span>
           </a>
         </div>
@@ -190,10 +188,9 @@ export default function ModernBeachClub() {
           <h2 id="modern-plan-title">YERİNİ<br /><em>ÖNCEDEN GÖR.</em></h2>
           <p>
             Loca, Gold ve Silver Bistro, orta ayakta ve arka genel alanların
-            sahneye konumunu inceleyin. Pusula, alanın gerçek kuzey yönüne göre
-            konumlandırılmıştır.
+            sahneye konumunu inceleyin.
           </p>
-          <a href="/assets/yerlesim-krokisi.pdf" target="_blank" rel="noreferrer">
+          <a href="/assets/sahne-yerlesim.pdf" target="_blank" rel="noreferrer">
             Yerleşim krokisini incele <span>↗</span>
           </a>
         </div>

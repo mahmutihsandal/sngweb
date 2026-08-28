@@ -688,37 +688,6 @@ section[id] { scroll-margin-top: 96px; }
   letter-spacing: .08em;
 }
 
-.plan-compass {
-  position: absolute;
-  z-index: 3;
-  top: 22px;
-  right: 22px;
-  width: 92px;
-  padding: 8px 8px 9px;
-  border: 1px solid rgba(255,255,255,.42);
-  border-radius: 8px;
-  background: rgba(5,10,18,.82);
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(0,0,0,.3);
-  backdrop-filter: blur(7px);
-  pointer-events: none;
-}
-.plan-compass svg { display: block; width: 100%; height: auto; }
-.plan-compass-ring { fill: rgba(255,255,255,.04); stroke: rgba(255,255,255,.52); stroke-width: 1; }
-.plan-compass-letter { fill: #fff; font-size: 9px; font-weight: 900; }
-.plan-compass-needle-north { fill: var(--gold); stroke: #fff2be; stroke-width: .8; }
-.plan-compass-needle-south { fill: rgba(255,255,255,.34); stroke: rgba(255,255,255,.7); stroke-width: .8; }
-.plan-compass-center { fill: #fff; }
-.plan-compass small {
-  display: block;
-  margin-top: 1px;
-  color: rgba(255,255,255,.82);
-  font-size: 6px;
-  font-weight: 850;
-  letter-spacing: .12em;
-  text-align: center;
-}
-
 .reservation-section {
   display: grid;
   grid-template-columns: 1.05fr .95fr;
@@ -1405,7 +1374,6 @@ footer {
   .plan-section { gap: 45px; }
   .plan-image { padding: 6px; }
   .plan-image span { right: 14px; bottom: 14px; }
-  .plan-compass { top: 12px; right: 12px; width: 72px; padding: 6px; }
   .reservation-section { gap: 12px; }
   .reservation-main { padding: 22px 20px 24px; }
   .reservation-heading {

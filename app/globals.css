@@ -643,18 +643,27 @@ section[id] { scroll-margin-top: 96px; }
 }
 .ticket-artist-option:focus-visible { outline: 3px solid #0b67d0; outline-offset: 3px; }
 .ticket-artist-option.is-sold-out {
+  border-left-color: #fff2a6;
+  background: #c7191e;
   cursor: not-allowed;
-  filter: grayscale(.35);
-  opacity: .72;
+  filter: none;
+  opacity: 1;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.34);
+}
+.ticket-artist-option.is-sold-out small { color: rgba(255,255,255,.88); }
+.ticket-artist-option.is-sold-out:hover {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.34);
+  transform: none;
 }
 .ticket-artist-option.is-sold-out b {
   width: auto;
   height: auto;
   flex-basis: auto;
-  border-radius: 3px;
-  padding: 5px 6px;
-  background: rgba(255,255,255,.17);
-  font-size: 7px;
+  border-radius: 4px;
+  padding: 6px 7px;
+  background: #fff2a6;
+  color: #8e1114;
+  font-size: 8px;
   font-weight: 900;
   letter-spacing: .08em;
 }

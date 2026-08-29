@@ -93,7 +93,7 @@ export default function TicketPurchase({
               >
                 <span>
                   <strong>{artist.artist}</strong>
-                  <small>{artist.date} · DOLU</small>
+                  <small>{artist.date} · REZERVASYONA KAPALI</small>
                 </span>
                 <b aria-hidden="true">DOLU</b>
               </button>

@@ -20,6 +20,7 @@ const events = [
     image: 'assets/poizi-portre.jpg',
     mobileImage: 'assets/poizi-portre.jpg',
     tone: 'gold',
+    soldOut: true,
   },
   {
     artist: 'PAU',
@@ -28,6 +29,7 @@ const events = [
     image: 'assets/pau-portre.png',
     mobileImage: 'assets/pau-portre.png',
     tone: 'red',
+    soldOut: false,
   },
 ] as const;
 
@@ -80,23 +82,23 @@ const tickets = [
     group: 'TEK KİŞİLİK',
     name: 'ORTA AYAKTA',
     detail: 'Orta bölüm',
-    price: '1.350 TL',
+    price: '2.000 TL',
     perks: 'Sahneye yakın ayakta izleme alanı',
     accent: 'middle',
     capacity: 10,
     priceMode: 'per-person',
-    unitPrice: 1350,
+    unitPrice: 2000,
   },
   {
     group: 'TEK KİŞİLİK',
     name: 'AYAKTA ARKA',
     detail: 'Genel alan',
-    price: '1.125 TL',
+    price: '1.500 TL',
     perks: 'Ayakta arka genel izleme alanı',
     accent: 'rear',
     capacity: 10,
     priceMode: 'per-person',
-    unitPrice: 1125,
+    unitPrice: 1500,
   },
 ] as const;
 

@@ -6,6 +6,7 @@ type ArtistOption = {
   artist: string;
   date: string;
   tone: 'gold' | 'red';
+  soldOut?: boolean;
 };
 
 type TicketPurchaseProps = {
@@ -78,22 +79,44 @@ export default function TicketPurchase({
 
       <p className="ticket-purchase-label">BİLETİNİ AL · SANATÇINI SEÇ</p>
       <div className="ticket-artist-options">
-        {artistOptions.map((artist) => (
-          <a
-            className={`ticket-artist-option ticket-artist-${artist.tone}`}
-            href={whatsappLink(artist)}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${artist.date} ${artist.artist} konseri, ${ticketName}${enableQuantity ? `, ${people} kişi` : ''}: WhatsApp'tan rezervasyon yap`}
-            key={artist.artist}
-          >
-            <span>
-              <strong>{artist.artist}</strong>
-              <small>{artist.date}</small>
-            </span>
-            <b aria-hidden="true">→</b>
-          </a>
-        ))}
+        {artistOptions.map((artist) => {
+          const artistIsSoldOut = artist.soldOut === true;
+
+          if (artistIsSoldOut) {
+            return (
+              <button
+                className={`ticket-artist-option ticket-artist-${artist.tone} is-sold-out`}
+                type="button"
+                disabled
+                aria-label={`${artist.date} ${artist.artist} konseri, ${ticketName}: dolu, yeni rezervasyona kapalı`}
+                key={artist.artist}
+              >
+                <span>
+                  <strong>{artist.artist}</strong>
+                  <small>{artist.date} · DOLU</small>
+                </span>
+                <b aria-hidden="true">DOLU</b>
+              </button>
+            );
+          }
+
+          return (
+            <a
+              className={`ticket-artist-option ticket-artist-${artist.tone}`}
+              href={whatsappLink(artist)}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${artist.date} ${artist.artist} konseri, ${ticketName}${enableQuantity ? `, ${people} kişi` : ''}: WhatsApp'tan rezervasyon yap`}
+              key={artist.artist}
+            >
+              <span>
+                <strong>{artist.artist}</strong>
+                <small>{artist.date}</small>
+              </span>
+              <b aria-hidden="true">→</b>
+            </a>
+          );
+        })}
       </div>
     </div>
   );

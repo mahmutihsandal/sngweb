@@ -6,7 +6,6 @@ type ArtistOption = {
   artist: string;
   date: string;
   tone: 'gold' | 'red';
-  soldOut?: boolean;
 };
 
 type TicketPurchaseProps = {
@@ -17,6 +16,7 @@ type TicketPurchaseProps = {
   ticketName: string;
   ticketPrice: string;
   unitPrice: number;
+  soldOutArtists: readonly string[];
 };
 
 const whatsappNumber = '905301802390';
@@ -32,6 +32,7 @@ export default function TicketPurchase({
   ticketName,
   ticketPrice,
   unitPrice,
+  soldOutArtists,
 }: TicketPurchaseProps) {
   const [people, setPeople] = useState(1);
   const totalPrice = priceMode === 'per-person' ? unitPrice * people : unitPrice;
@@ -80,7 +81,7 @@ export default function TicketPurchase({
       <p className="ticket-purchase-label">BİLETİNİ AL · SANATÇINI SEÇ</p>
       <div className="ticket-artist-options">
         {artistOptions.map((artist) => {
-          const artistIsSoldOut = artist.soldOut === true;
+          const artistIsSoldOut = soldOutArtists.includes(artist.artist);
 
           if (artistIsSoldOut) {
             return (

@@ -20,7 +20,6 @@ const events = [
     image: 'assets/poizi-portre.jpg',
     mobileImage: 'assets/poizi-portre.jpg',
     tone: 'gold',
-    soldOut: true,
   },
   {
     artist: 'PAU',
@@ -29,7 +28,6 @@ const events = [
     image: 'assets/pau-portre.png',
     mobileImage: 'assets/pau-portre.png',
     tone: 'red',
-    soldOut: false,
   },
 ] as const;
 
@@ -44,6 +42,7 @@ const tickets = [
     capacity: 6,
     priceMode: 'package',
     unitPrice: 70000,
+    soldOutArtists: [],
   },
   {
     group: 'LOCA · 6 KİŞİ',
@@ -55,6 +54,7 @@ const tickets = [
     capacity: 6,
     priceMode: 'package',
     unitPrice: 50000,
+    soldOutArtists: [],
   },
   {
     group: 'BİSTRO · 3 KİŞİ',
@@ -66,6 +66,7 @@ const tickets = [
     capacity: 3,
     priceMode: 'package',
     unitPrice: 25000,
+    soldOutArtists: [],
   },
   {
     group: 'BİSTRO · 3 KİŞİ',
@@ -77,6 +78,7 @@ const tickets = [
     capacity: 3,
     priceMode: 'package',
     unitPrice: 15000,
+    soldOutArtists: [],
   },
   {
     group: 'TEK KİŞİLİK',
@@ -88,6 +90,7 @@ const tickets = [
     capacity: 10,
     priceMode: 'per-person',
     unitPrice: 2000,
+    soldOutArtists: ['POIZI'],
   },
   {
     group: 'TEK KİŞİLİK',
@@ -99,6 +102,7 @@ const tickets = [
     capacity: 10,
     priceMode: 'per-person',
     unitPrice: 1500,
+    soldOutArtists: [],
   },
 ] as const;
 
@@ -260,6 +264,7 @@ export default function Home() {
                 ticketName={ticket.name}
                 ticketPrice={ticket.price}
                 unitPrice={ticket.unitPrice}
+                soldOutArtists={ticket.soldOutArtists}
               />
             </article>
           ))}

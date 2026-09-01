@@ -25,124 +25,38 @@ a { color: inherit; text-decoration: none; }
 img { display: block; }
 section[id] { scroll-margin-top: 96px; }
 
-.transport-dialog {
-  width: min(610px, calc(100vw - 36px));
-  max-width: none;
+.announcement-dialog {
+  width: fit-content;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 24px);
   margin: auto;
   border: 0;
   padding: 0;
-  background: transparent;
-  color: #fff;
-  overflow: visible;
-}
-.transport-dialog::backdrop {
-  background: rgba(0,0,0,.78);
-  backdrop-filter: blur(7px);
-  animation: transport-backdrop-in .25s ease-out both;
-}
-.transport-dialog[open] { animation: transport-dialog-in .28s ease-out both; }
-.transport-dialog-card {
-  position: relative;
+  background: #000;
   overflow: hidden;
-  border: 1px solid rgba(230,169,26,.52);
-  padding: clamp(28px, 5vw, 48px);
-  background:
-    radial-gradient(circle at 95% 0%, rgba(230,169,26,.2), transparent 38%),
-    linear-gradient(145deg, #171717 0%, #090909 78%);
-  box-shadow: 0 34px 90px rgba(0,0,0,.7);
+  outline: 0;
+  box-shadow: 0 34px 90px rgba(0,0,0,.8);
 }
-.transport-dialog-card::before {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 5px;
-  background: var(--gold);
-  content: '';
+.announcement-dialog::backdrop {
+  background: rgba(0,0,0,.92);
+  backdrop-filter: blur(7px);
 }
-.transport-dialog-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--red);
-  background: var(--red);
-  color: #fff;
-  font: inherit;
-  cursor: pointer;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
-}
-.transport-dialog-close span { font-size: 27px; font-weight: 300; line-height: 1; }
-.transport-dialog-close:hover,
-.transport-dialog-close:focus-visible { border-color: #ff625d; background: #ff625d; color: #fff; }
-.transport-dialog-heading { display: flex; align-items: center; gap: 17px; padding-right: 45px; }
-.transport-dialog-icon {
-  width: 58px;
-  height: 58px;
-  flex: 0 0 auto;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(230,169,26,.52);
-  background: rgba(230,169,26,.12);
-  font-size: 27px;
-}
-.transport-dialog-heading p {
-  margin: 0 0 7px;
-  color: var(--gold);
-  font-size: 9px;
-  font-weight: 850;
-  letter-spacing: .2em;
-}
-.transport-dialog-heading h2 {
-  margin: 0;
-  font-size: clamp(25px, 5vw, 39px);
-  font-weight: 900;
-  line-height: .93;
-  letter-spacing: -.055em;
-}
-.transport-dialog-lead {
-  margin: 27px 0 22px;
-  color: rgba(255,255,255,.7);
-  font-size: 14px;
-  line-height: 1.65;
-}
-.transport-dialog-details { border-top: 1px solid rgba(255,255,255,.2); }
-.transport-dialog-details > div {
-  display: grid;
-  grid-template-columns: 122px 1fr;
-  gap: 20px;
-  align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,.2);
-  padding: 18px 0;
-}
-.transport-dialog-details span {
-  color: rgba(255,255,255,.4);
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: .16em;
-}
-.transport-dialog-details strong { font-size: 15px; line-height: 1.45; }
-.transport-dialog-details b { margin: 0 5px; color: var(--gold); }
-.transport-dialog-note {
-  margin: 20px 0 0;
-  color: rgba(255,255,255,.62);
-  font-size: 12px;
-  line-height: 1.6;
+.announcement-dialog[open] { animation: announcement-dialog-in .28s ease-out both; }
+.announcement-dialog img {
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 24px);
+  object-fit: contain;
 }
 
-@keyframes transport-dialog-in {
+@keyframes announcement-dialog-in {
   from { opacity: 0; transform: translateY(18px) scale(.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
-@keyframes transport-backdrop-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
 @media (prefers-reduced-motion: reduce) {
-  .transport-dialog[open],
-  .transport-dialog::backdrop { animation: none; }
+  .announcement-dialog[open] { animation: none; }
 }
 
 .site-header {
@@ -957,16 +871,6 @@ footer {
 
 @media (max-width: 760px) {
   section[id] { scroll-margin-top: 84px; }
-  .transport-dialog { width: min(calc(100% - 24px), 610px); }
-  .transport-dialog-card { padding: 27px 22px 22px 26px; }
-  .transport-dialog-close { top: 11px; right: 11px; width: 38px; height: 38px; }
-  .transport-dialog-heading { align-items: flex-start; gap: 13px; padding-right: 32px; }
-  .transport-dialog-icon { width: 47px; height: 47px; font-size: 22px; }
-  .transport-dialog-heading h2 { font-size: clamp(24px, 8vw, 32px); }
-  .transport-dialog-lead { margin: 22px 0 17px; font-size: 12px; }
-  .transport-dialog-details > div { grid-template-columns: 1fr; gap: 7px; padding: 14px 0; }
-  .transport-dialog-details strong { font-size: 13px; }
-  .transport-dialog-note { margin: 16px 0 0; font-size: 11px; }
   .site-header { height: 72px; grid-template-columns: 1fr auto; padding: 0 18px; }
   .header-brand { gap: 8px; }
   .header-brand-wordmark { gap: 9px; }
